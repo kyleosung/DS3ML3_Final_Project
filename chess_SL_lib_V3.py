@@ -68,7 +68,7 @@ class ChessIterableDataset(IterableDataset): # TODO! Write docstrings
     
     def __iter__(self):
         for idx, csv_file in enumerate(self.csv_files):
-            chunk_iter = pd.read_csv(csv_file, chunksize=self.chunksize, dtype={15:str, 33:str})#, engine='pyarrow')
+            chunk_iter = pd.read_csv(csv_file, chunksize=self.chunksize)#, dtype={15:str, 33:str})#, engine='pyarrow')
             
             if idx % 10 == 0:
                 print(f'Read file {idx} of {len(self.csv_files)}')
@@ -264,7 +264,7 @@ def train(model, dataset, data_loader, criterion, optimizer, num_epochs):
 
                 running_loss += loss.item()
 
-        except:
+        except KeyboardInterrupt:
             print("Finished Training Early!")
             break
         
