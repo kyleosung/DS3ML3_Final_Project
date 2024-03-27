@@ -46,6 +46,9 @@ class ChessIterableDataset(IterableDataset): # TODO! Write docstrings
             samples.append({'fen': board_tensor, 'fen_str': board, 'white_to_move': white_to_move, 'cp_rel': cp_rel, 'is_check': is_check, 'move': move})
         return samples
 
+    def __len__(self):
+        return sum(1 for _ in self.__iter__())
+
 
     def __getitem__(self, idx):
         board = self.dataframe.iloc[idx]['board']
@@ -67,7 +70,7 @@ class ChessIterableDataset(IterableDataset): # TODO! Write docstrings
         for idx, csv_file in enumerate(self.csv_files):
             chunk_iter = pd.read_csv(csv_file, chunksize=self.chunksize, dtype={15:str, 33:str})#, engine='pyarrow')
             
-            if idx % 5 == 0:
+            if idx % 10 == 0:
                 print(f'Read file {idx} of {len(self.csv_files)}')
 
             for chunk in chunk_iter:
@@ -212,7 +215,10 @@ def is_check(fen):
 def custom_loss(dataset, output, target, fen, illegal_move_penalty=5000.0):
     # Calculate the MSE loss
     output = output.view(-1, 64, 64)
-    mse_loss = nn.MSELoss()(output, target)
+    loss = nn.MSELoss()(output, target)
+
+    # Possibly switch to L1 Norm?
+    # loss = nn.L1Loss()(output, target)
 
     # Add penalty for illegal moves
     batch_size = output.size(0)
@@ -222,9 +228,9 @@ def custom_loss(dataset, output, target, fen, illegal_move_penalty=5000.0):
         if not is_legal_move(fen[i], move):
             penalties[i] = illegal_move_penalty
 
-    mse_loss += penalties.mean()
+    loss += penalties.mean()
 
-    return mse_loss
+    return loss
 
 
 def train(model, dataset, data_loader, criterion, optimizer, num_epochs):
@@ -274,8 +280,10 @@ def modify_output(output):
     return output
 
 
-def predict(model, fen, white_to_move):
+def predict(model, fen):
     # Convert the FEN string to a tensor
+    white_to_move = int(chess.Board(fen).turn)
+
     fen_tensor = ChessIterableDataset(None, None).fen_to_tensor(fen).to(device)
 
     move_tensor = torch.tensor(white_to_move).unsqueeze(0).to(device)
@@ -305,8 +313,16 @@ def predict(model, fen, white_to_move):
     # If the move is illegal, modify the output tensor to suggest a different move
     while not is_legal_move(fen, move):
         print(f'Illegal move {move}, modifying output tensor...')
-        output = modify_output(output)
-        move = ChessIterableDataset(None, None).output_to_move(output[0])
+        
+        # Modify output tensor
+        # output = modify_output(output)
+        # move = ChessIterableDataset(None, None).output_to_move(output[0])
+
+        # generate from a list of the legal moves
+        board = chess.Board(fen)
+        legal_moves = list(board.legal_moves)
+        random_move = np.random.choice(legal_moves)
+        move = random_move.uci()
 
     return move
 
