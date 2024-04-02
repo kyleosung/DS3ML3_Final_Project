@@ -24,11 +24,13 @@ class EvalNet(nn.Module):
         self.fc1 = nn.Linear(400 + 2, 128) ## Add two for scalar inputs
         self.fc2 = nn.Linear(128, 1)
 
-    def forward(self, x, scalar_inputs):
-        x = x.unsqueeze(1)
+    def forward(self, x, scalar_inputs, train=True):
         # print(x.shape)
         x = F.leaky_relu(self.conv1(x))
-        x = self.flatten(x)
+        x = x.view(x.size(0), -1)
+        if not train:
+            x = x.view(1, -1)
+
         # print(f"x shape: {x.shape}, scalar_input shape: {scalar_inputs.shape}")
         x = torch.cat((x, scalar_inputs), dim=1)
         # print(x.shape)
@@ -56,9 +58,22 @@ class ChessIterableDataset(IterableDataset): # TODO! Write docstrings
             cp = row['cp']
             is_check = row['is_check'] # add to predictions
 
+            # print(cp, type(cp))
+
+            if '#' in str(cp) and white_active:
+                cp = 15
+            elif '#' in str(cp) and not white_active:
+                cp = -15
+            elif cp > 15:
+                cp = 15
+            elif cp < -15:
+                cp = -15
+                
+
             # Convert data to tensors
             board_tensor = fen_str_to_tensor(board)
             white_active = torch.tensor(white_active, dtype=torch.float32)
+            
             cp = torch.tensor(cp, dtype=torch.float32)
             is_check = torch.tensor(is_check, dtype=torch.float32)
         
@@ -79,6 +94,16 @@ class ChessIterableDataset(IterableDataset): # TODO! Write docstrings
         # Convert data to tensors
         board_tensor = fen_str_to_tensor(board)
         white_active = torch.tensor(white_active, dtype=torch.float32)
+
+        if '#' in str(cp) and white_active:
+            cp = 15
+        elif '#' in str(cp) and not white_active:
+            cp = -15
+        elif cp > 15:
+            cp = 15
+        elif cp < -15:
+            cp = -15
+
         cp = torch.tensor(cp, dtype=torch.float32)
 
         return {'fen': board_tensor, 'fen_str': board, 'white_active': white_active, 'cp': cp, 'is_check': is_check}
@@ -86,18 +111,25 @@ class ChessIterableDataset(IterableDataset): # TODO! Write docstrings
 
     def __iter__(self):
         for idx, csv_file in enumerate(self.csv_files):
-            chunk_iter = pd.read_csv(csv_file, chunksize=self.chunksize)#, dtype={15:str, 33:str})#, engine='pyarrow')
+            chunk_iter = pd.read_csv(csv_file, chunksize=self.chunksize)#, dtype={'cp': float})#, dtype={15:str, 33:str})#, engine='pyarrow')
             
             if idx % 10 == 0:
                 # print(f'Read file {idx} of {len(self.csv_files)}')
                 pass
 
             for chunk in chunk_iter:
-                
+                chunk = chunk.dropna(how='any')
                 chunk = chunk.loc[chunk['white_elo'] >= 1350] # select a subset of players with a certain rating
                 chunk = chunk.loc[chunk['black_elo'] >= 1350]
-                chunk = chunk.dropna(subset=['cp'])
                 
+                chunk['cp'] = pd.to_numeric(chunk['cp'], errors='coerce')
+
+                chunk.loc[(chunk['cp'].isna() | chunk['cp'].isnull() ) & (chunk.loc[chunk['cp'].isna(), 'white_active'] == 1), 'cp'] = 15
+                chunk.loc[(chunk['cp'].isna() | chunk['cp'].isnull() ) & (chunk.loc[chunk['cp'].isna(), 'white_active'] == 0), 'cp'] = -15
+
+                chunk.loc[(chunk['cp'] > 15), 'cp'] = 15
+                chunk.loc[(chunk['cp'] < -15), 'cp'] = -15
+
                 yield from self.process_chunk(chunk) # Returns a list of yielded elements
             
             del chunk_iter # clean up garbage
@@ -136,7 +168,7 @@ def fen_str_to_tensor(fen):
 
 
 
-def train(model, dataset, train_data_loader, val_data_loader, criterion, optimizer, num_epochs):
+def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_epochs):
     print('Begin Training!')
     model.train()  # Set the model to training mode
     for epoch in range(num_epochs):
@@ -147,13 +179,13 @@ def train(model, dataset, train_data_loader, val_data_loader, criterion, optimiz
             for i, data in enumerate(train_data_loader):
 
                 # Feature Variables
-                fen           = data['fen'].to(device)
+                fen           = data['fen'].to(device).unsqueeze(1)
                 white_active  = data['white_active'].to(device).unsqueeze(0)
                 is_check      = data['is_check'].to(device).unsqueeze(0)
                 scalar_inputs = torch.cat( (white_active, is_check), dim = 0 ).T
 
                 # Predictor Variables
-                cp = (data['cp'].to(device)).unsqueeze(1)
+                cp = ((data['cp']).to(device)).unsqueeze(1)
 
                 # Zero the parameter gradients
                 optimizer.zero_grad()
@@ -183,7 +215,7 @@ def train(model, dataset, train_data_loader, val_data_loader, criterion, optimiz
                     # Extract the inputs and labels from the validation data
                     
                     # Feature Variables
-                    fen           = val_data['fen'].to(device)
+                    fen           = val_data['fen'].to(device).unsqueeze(1)
                     white_active  = val_data['white_active'].to(device).unsqueeze(0)
                     is_check      = val_data['is_check'].to(device).unsqueeze(0)
                     scalar_inputs = torch.cat( (white_active, is_check), dim = 0 ).T
@@ -206,3 +238,36 @@ def train(model, dataset, train_data_loader, val_data_loader, criterion, optimiz
     print('Finished Training!')
 
     torch.save(model, 'models/autosave.pth')
+
+
+
+def predict(model, fen):
+    board = chess.Board(fen)
+    legal_moves_list = list(board.legal_moves)
+    evals_list = []
+
+    model.eval()
+    with torch.no_grad():
+        for move in legal_moves_list:
+
+            device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+            
+            board.push(move)
+            fen_tensor = fen_str_to_tensor(board.fen()).unsqueeze(0).to(device)
+
+            # print(fen_tensor.shape)
+
+            white_active = torch.tensor(board.turn, dtype=torch.float32)
+            is_check = torch.tensor(board.is_check(), dtype=torch.float32)
+            scalar_inputs = torch.vstack( (white_active, is_check)).T.to(device)
+            # print(scalar_inputs.shape)
+
+            
+            evals_list.append(model(fen_tensor, scalar_inputs, False).to('cpu'))
+            board.pop()
+
+    if board.turn:
+        return legal_moves_list[np.argmax(evals_list)].uci()
+    else:
+        return legal_moves_list[np.argmin(evals_list)].uci() 
+    
