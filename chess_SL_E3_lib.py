@@ -19,10 +19,10 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 class EvalNet(nn.Module):
     def __init__(self):
         super(EvalNet, self).__init__()
-        self.conv1 = nn.Conv2d(1, 16, kernel_size = 6, stride = 1, padding = 1)
+        self.conv1 = nn.Conv2d(1, 16, kernel_size = 5, stride = 1, padding = 1)
         self.flatten = nn.Flatten()
-        self.fc1 = nn.Linear(400 + 2, 128) ## Add two for scalar inputs
-        self.fc2 = nn.Linear(128, 1)
+        self.fc1 = nn.Linear(576 + 2, 512) ## Add two for scalar inputs
+        self.fc2 = nn.Linear(512, 1)
 
     def forward(self, x, scalar_inputs, train=True):
         # print(x.shape)
@@ -171,6 +171,10 @@ def fen_str_to_tensor(fen):
 def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_epochs):
     print('Begin Training!')
     model.train()  # Set the model to training mode
+
+    training_loss_history = []
+    validation_loss_history = []
+
     for epoch in range(num_epochs):
         train_running_loss = 0.0
         val_running_loss = 0.0
@@ -236,10 +240,14 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
             break
         
         print(f'Epoch {epoch+1}/{num_epochs}, Training Loss: {train_running_loss/len(train_data_loader):.5f}, Validation Loss: {val_running_loss/len(val_data_loader):.5f}')
+        training_loss_history.append(train_running_loss/len(train_data_loader))
+        validation_loss_history.append(val_running_loss/len(val_data_loader))
 
     print('Finished Training!')
 
     torch.save(model, 'models/autosave.pth')
+
+    return training_loss_history, validation_loss_history
 
 
 

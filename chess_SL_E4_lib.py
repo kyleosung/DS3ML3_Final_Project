@@ -19,10 +19,10 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 class EvalNet(nn.Module):
     def __init__(self):
         super(EvalNet, self).__init__()
-        self.conv1 = nn.Conv2d(1, 16, kernel_size = 6, stride = 1, padding = 1)
+        self.conv1 = nn.Conv2d(1, 16, kernel_size = 5, stride = 1, padding = 1)
         self.flatten = nn.Flatten()
-        self.fc1 = nn.Linear(400 + 2, 128) ## Add two for scalar inputs
-        self.fc2 = nn.Linear(128, 1)
+        self.fc1 = nn.Linear(576 + 2, 512) ## Add two for scalar inputs
+        self.fc2 = nn.Linear(512, 1)
 
     def forward(self, x, scalar_inputs, train=True):
         # print(x.shape)
@@ -56,7 +56,10 @@ class ChessIterableDataset(IterableDataset): # TODO! Write docstrings
             board = row['board']
             white_active = row['white_active']
             cp = row['cp']
-            is_check = row['is_check'] # add to predictions
+            is_check = row['is_check']
+            is_capture = row['is_capture'] # add to predictions
+            # white_elo = row['white_elo'] # add to predictions
+            # black_elo = row['black_elo'] # add to predictions
 
             # print(cp, type(cp))
 
@@ -77,7 +80,14 @@ class ChessIterableDataset(IterableDataset): # TODO! Write docstrings
             cp = torch.tensor(cp, dtype=torch.float32)
             is_check = torch.tensor(is_check, dtype=torch.float32)
         
-            samples.append({'fen': board_tensor, 'fen_str': board, 'white_active': white_active, 'cp': cp, 'is_check': is_check})
+            samples.append({'fen': board_tensor, 
+                            'fen_str': board, 
+                            'white_active': white_active, 
+                            'cp': cp, 'is_check': is_check, 
+                            'is_capture': is_capture,
+                            # 'white_elo': white_elo, 
+                            # 'black_elo': black_elo,
+            })
         return samples
 
 
@@ -90,6 +100,9 @@ class ChessIterableDataset(IterableDataset): # TODO! Write docstrings
         white_active = self.dataframe.iloc[idx]['white_active']
         cp = self.dataframe.iloc[idx]['cp']
         is_check = self.dataframe.iloc[idx]['is_check']
+        is_capture = self.dataframe.iloc[idx]['is_capture']
+        # white_elo = self.dataframe.iloc[idx]['white_elo']
+        # black_elo = self.dataframe.iloc[idx]['black_elo']
         
         # Convert data to tensors
         board_tensor = fen_str_to_tensor(board)
@@ -106,7 +119,7 @@ class ChessIterableDataset(IterableDataset): # TODO! Write docstrings
 
         cp = torch.tensor(cp, dtype=torch.float32)
 
-        return {'fen': board_tensor, 'fen_str': board, 'white_active': white_active, 'cp': cp, 'is_check': is_check}
+        return {'fen': board_tensor, 'fen_str': board, 'white_active': white_active, 'cp': cp, 'is_check': is_check, 'is_capture': is_capture} #'white_elo': white_elo, 'black_elo': black_elo}
     
 
     def __iter__(self):
@@ -171,6 +184,10 @@ def fen_str_to_tensor(fen):
 def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_epochs):
     print('Begin Training!')
     model.train()  # Set the model to training mode
+
+    training_loss_history = []
+    validation_loss_history = []
+
     for epoch in range(num_epochs):
         train_running_loss = 0.0
         val_running_loss = 0.0
@@ -182,7 +199,8 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
                 fen           = data['fen'].to(device).unsqueeze(1)
                 white_active  = data['white_active'].to(device).unsqueeze(0)
                 is_check      = data['is_check'].to(device).unsqueeze(0)
-                scalar_inputs = torch.cat( (white_active, is_check), dim = 0 ).T
+                is_capture    = data['is_capture'].to(device).unsqueeze(0)
+                scalar_inputs = torch.cat( (white_active, is_check, is_capture), dim = 0 ).T
 
                 # Predictor Variables
                 cp = ((data['cp']).to(device)).unsqueeze(1)
@@ -218,7 +236,10 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
                     fen           = val_data['fen'].to(device).unsqueeze(1)
                     white_active  = val_data['white_active'].to(device).unsqueeze(0)
                     is_check      = val_data['is_check'].to(device).unsqueeze(0)
-                    scalar_inputs = torch.cat( (white_active, is_check), dim = 0 ).T
+                    is_capture    = data['is_capture'].to(device).unsqueeze(0)
+                    # white_elo     = val_data['white_elo'].to(device).unsqueeze(0) # won't be able to use to
+                    # black_elo     = val_data['black_elo'].to(device).unsqueeze(0) # make predictions
+                    scalar_inputs = torch.cat( (white_active, is_check, is_capture), dim = 0 ).T
 
                     # Predictor Variables
                     cp = (val_data['cp'].to(device)).unsqueeze(1)
@@ -236,10 +257,14 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
             break
         
         print(f'Epoch {epoch+1}/{num_epochs}, Training Loss: {train_running_loss/len(train_data_loader):.5f}, Validation Loss: {val_running_loss/len(val_data_loader):.5f}')
+        training_loss_history.append(train_running_loss/len(train_data_loader))
+        validation_loss_history.append(val_running_loss/len(val_data_loader))
 
     print('Finished Training!')
 
     torch.save(model, 'models/autosave.pth')
+
+    return training_loss_history, validation_loss_history
 
 
 
@@ -254,6 +279,8 @@ def predict(model, fen):
 
             device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
             
+            is_capture = board.is_capture(move)
+
             board.push(move)
             fen_tensor = fen_str_to_tensor(board.fen()).unsqueeze(0).to(device)
 
@@ -261,7 +288,8 @@ def predict(model, fen):
 
             white_active = torch.tensor(board.turn, dtype=torch.float32)
             is_check = torch.tensor(board.is_check(), dtype=torch.float32)
-            scalar_inputs = torch.vstack( (white_active, is_check)).T.to(device)
+    
+            scalar_inputs = torch.vstack( (white_active, is_check, is_capture)).T.to(device)
             # print(scalar_inputs.shape)
 
             
