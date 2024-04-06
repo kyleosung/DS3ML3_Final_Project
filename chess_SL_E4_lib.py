@@ -24,16 +24,16 @@ class EvalNet(nn.Module):
         self.fc1 = nn.Linear(576 + 2, 512) ## Add two for scalar inputs
         self.fc2 = nn.Linear(512, 1)
 
-    def forward(self, x, scalar_inputs, train=True):
-        print(x.shape)
+    def forward(self, x, scalar_inputs, *xargs, **kwargs):#, train=True):
+        # print(x.shape)
         x = F.leaky_relu(self.conv1(x))
         x = x.view(x.size(0), -1)
-        if not train:
-            x = x.view(1, -1)
+        # if not train:
+        #     x = x.view(1, -1)
 
-        print(f"x shape: {x.shape}, scalar_input shape: {scalar_inputs.shape}")
+        # print(f"x shape: {x.shape}, scalar_input shape: {scalar_inputs.shape}")
         x = torch.cat((x, scalar_inputs), dim=1)
-        print(x.shape)
+        # print(x.shape)
         x = F.leaky_relu(self.fc1(x))
         x = F.leaky_relu(self.fc2(x))
         return x
@@ -214,9 +214,11 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
     validation_loss_history = []
 
     for epoch in range(num_epochs):
-        train_running_loss = 0.0
-        val_running_loss = 0.0
+
         try:
+
+            train_running_loss = 0.0
+            val_running_loss = 0.0
             ## TRAINING PHASE
             for i, data in enumerate(train_data_loader):
 
@@ -226,10 +228,11 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
                 # is_check      = data['is_check'].to(device).unsqueeze(0) # don't use check predictor
                 is_capture    = data['is_capture'].to(device).unsqueeze(0)
                 
+                # print(fen.shape, white_active.shape, is_capture.shape)
+
                 # modify to not use check predictor
                 # scalar_inputs = torch.cat( (white_active, is_check, is_capture), dim = 0 ).T
                 scalar_inputs = torch.cat( (white_active, is_capture), dim = 0 ).T
-
 
                 # Predictor Variables
                 cp = ((data['cp']).to(device)).unsqueeze(1)
@@ -240,9 +243,11 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
                 # Forward pass
                 train_outputs = model(fen, scalar_inputs)
 
+                '''
                 # print(train_outputs.shape, cp.shape)
 
                 # print(torch.isnan(train_outputs).sum(), torch.isnan(cp).sum())
+                '''
 
                 train_batch_loss = criterion(train_outputs, cp)
 
@@ -265,9 +270,14 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
                     fen           = val_data['fen'].to(device)# .unsqueeze(1)
                     white_active  = val_data['white_active'].to(device).unsqueeze(0)
                     # is_check      = val_data['is_check'].to(device).unsqueeze(0) # don't use check predictor
-                    is_capture    = data['is_capture'].to(device).unsqueeze(0)
+                    is_capture    = val_data['is_capture'].to(device).unsqueeze(0)
+
+                    '''
                     # white_elo     = val_data['white_elo'].to(device).unsqueeze(0) # won't be able to use to
                     # black_elo     = val_data['black_elo'].to(device).unsqueeze(0) # make predictions
+                    '''
+
+                    # print(fen.shape, white_active.shape, is_capture.shape)
 
                     # modify to not use check predictor
                     # scalar_inputs = torch.cat( (white_active, is_check, is_capture), dim = 0 ).T
@@ -284,13 +294,15 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
 
                     val_running_loss += val_batch_loss.item()
 
+            print(f'Epoch {epoch+1}/{num_epochs}, Training Loss: {train_running_loss/len(train_data_loader):.5f}, Validation Loss: {val_running_loss/len(val_data_loader):.5f}')
+            training_loss_history.append(train_running_loss/len(train_data_loader))
+            validation_loss_history.append(val_running_loss/len(val_data_loader))
+            
         except KeyboardInterrupt:
             print("Manual Stop: Finished Training Early!")
             break
         
-        print(f'Epoch {epoch+1}/{num_epochs}, Training Loss: {train_running_loss/len(train_data_loader):.5f}, Validation Loss: {val_running_loss/len(val_data_loader):.5f}')
-        training_loss_history.append(train_running_loss/len(train_data_loader))
-        validation_loss_history.append(val_running_loss/len(val_data_loader))
+
 
     print('Finished Training!')
 
@@ -314,16 +326,18 @@ def predict(model, fen):
             is_capture = board.is_capture(move)
 
             board.push(move)
-            fen_tensor = fen_str_to_tensor(board.fen()).unsqueeze(0).to(device)
+            fen_tensor = fen_str_to_3d_tensor(board.fen()).unsqueeze(0).to(device)
 
             # print(fen_tensor.shape)
 
             white_active = torch.tensor(board.turn, dtype=torch.float32)
-            is_check = torch.tensor(board.is_check(), dtype=torch.float32)
+            # is_check = torch.tensor(board.is_check(), dtype=torch.float32) # don't use check predictor
+            is_capture = torch.tensor(is_capture, dtype=torch.float32)
     
-            scalar_inputs = torch.vstack( (white_active, is_check, is_capture)).T.to(device)
+            # modify to not use check predictor
+            # scalar_inputs = torch.vstack( (white_active, is_check, is_capture)).T.to(device)
+            scalar_inputs = torch.vstack( (white_active, is_capture)).T.to(device)
             # print(scalar_inputs.shape)
-
             
             evals_list.append(model(fen_tensor, scalar_inputs, False).to('cpu'))
             board.pop()
