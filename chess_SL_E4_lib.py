@@ -19,21 +19,21 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 class EvalNet(nn.Module):
     def __init__(self):
         super(EvalNet, self).__init__()
-        self.conv1 = nn.Conv2d(1, 16, kernel_size = 5, stride = 1, padding = 1)
+        self.conv1 = nn.Conv2d(6, 16, kernel_size = 5, stride = 1, padding = 1,) # try adding six channels?
         self.flatten = nn.Flatten()
         self.fc1 = nn.Linear(576 + 2, 512) ## Add two for scalar inputs
         self.fc2 = nn.Linear(512, 1)
 
     def forward(self, x, scalar_inputs, train=True):
-        # print(x.shape)
+        print(x.shape)
         x = F.leaky_relu(self.conv1(x))
         x = x.view(x.size(0), -1)
         if not train:
             x = x.view(1, -1)
 
-        # print(f"x shape: {x.shape}, scalar_input shape: {scalar_inputs.shape}")
+        print(f"x shape: {x.shape}, scalar_input shape: {scalar_inputs.shape}")
         x = torch.cat((x, scalar_inputs), dim=1)
-        # print(x.shape)
+        print(x.shape)
         x = F.leaky_relu(self.fc1(x))
         x = F.leaky_relu(self.fc2(x))
         return x
@@ -74,7 +74,7 @@ class ChessIterableDataset(IterableDataset): # TODO! Write docstrings
                 
 
             # Convert data to tensors
-            board_tensor = fen_str_to_tensor(board)
+            board_tensor = fen_str_to_3d_tensor(board)
             white_active = torch.tensor(white_active, dtype=torch.float32)
             
             cp = torch.tensor(cp, dtype=torch.float32)
@@ -105,7 +105,7 @@ class ChessIterableDataset(IterableDataset): # TODO! Write docstrings
         # black_elo = self.dataframe.iloc[idx]['black_elo']
         
         # Convert data to tensors
-        board_tensor = fen_str_to_tensor(board)
+        board_tensor = fen_str_to_3d_tensor(board)
         white_active = torch.tensor(white_active, dtype=torch.float32)
 
         if '#' in str(cp) and white_active:
@@ -151,12 +151,11 @@ class ChessIterableDataset(IterableDataset): # TODO! Write docstrings
 
 
 
-def fen_str_to_tensor(fen):
+def fen_str_to_flat_tensor(fen):
     # Define a mapping from pieces to integers
     piece_to_int = {
         'P': 1, 'N': 2, 'B': 3, 'R': 4, 'Q': 5, 'K': 6,
         'p': -1, 'n': -2, 'b': -3, 'r': -4, 'q': -5, 'k': -6,
-        '.': 0
     }
 
     # Split the FEN string into parts ## 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
@@ -181,6 +180,32 @@ def fen_str_to_tensor(fen):
 
 
 
+def fen_str_to_3d_tensor(fen):
+    piece_to_int = {
+        'P': 1, 'N': 2, 'B': 3, 'R': 4, 'Q': 5, 'K': 6,
+        'p': -1, 'n': -2, 'b': -3, 'r': -4, 'q': -5, 'k': -6,
+    }
+
+    board = np.zeros((6, 8, 8), dtype=np.float32)
+    
+    # Split the FEN string into parts ## 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
+    fen_parts = fen.split(' ')
+    fen_rows = fen_parts[0].split('/') # Only process the board position (the first part)
+    
+    for row_idx, row in enumerate(fen_rows):
+        col_idx = 0
+        for char in row:
+            if char.isdigit():
+                col_idx += int(char)
+            else:
+                piece = piece_to_int[char]
+                board[abs(piece) - 1, row_idx, col_idx] = piece
+                col_idx += 1
+    
+    return torch.tensor(board)
+
+
+
 def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_epochs):
     print('Begin Training!')
     model.train()  # Set the model to training mode
@@ -196,11 +221,15 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
             for i, data in enumerate(train_data_loader):
 
                 # Feature Variables
-                fen           = data['fen'].to(device).unsqueeze(1)
+                fen           = data['fen'].to(device)#.unsqueeze(1)
                 white_active  = data['white_active'].to(device).unsqueeze(0)
-                is_check      = data['is_check'].to(device).unsqueeze(0)
+                # is_check      = data['is_check'].to(device).unsqueeze(0) # don't use check predictor
                 is_capture    = data['is_capture'].to(device).unsqueeze(0)
-                scalar_inputs = torch.cat( (white_active, is_check, is_capture), dim = 0 ).T
+                
+                # modify to not use check predictor
+                # scalar_inputs = torch.cat( (white_active, is_check, is_capture), dim = 0 ).T
+                scalar_inputs = torch.cat( (white_active, is_capture), dim = 0 ).T
+
 
                 # Predictor Variables
                 cp = ((data['cp']).to(device)).unsqueeze(1)
@@ -233,13 +262,16 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
                     # Extract the inputs and labels from the validation data
                     
                     # Feature Variables
-                    fen           = val_data['fen'].to(device).unsqueeze(1)
+                    fen           = val_data['fen'].to(device)# .unsqueeze(1)
                     white_active  = val_data['white_active'].to(device).unsqueeze(0)
-                    is_check      = val_data['is_check'].to(device).unsqueeze(0)
+                    # is_check      = val_data['is_check'].to(device).unsqueeze(0) # don't use check predictor
                     is_capture    = data['is_capture'].to(device).unsqueeze(0)
                     # white_elo     = val_data['white_elo'].to(device).unsqueeze(0) # won't be able to use to
                     # black_elo     = val_data['black_elo'].to(device).unsqueeze(0) # make predictions
-                    scalar_inputs = torch.cat( (white_active, is_check, is_capture), dim = 0 ).T
+
+                    # modify to not use check predictor
+                    # scalar_inputs = torch.cat( (white_active, is_check, is_capture), dim = 0 ).T
+                    scalar_inputs = torch.cat( (white_active, is_capture), dim = 0 ).T
 
                     # Predictor Variables
                     cp = (val_data['cp'].to(device)).unsqueeze(1)
