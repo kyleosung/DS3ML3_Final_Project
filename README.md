@@ -47,6 +47,8 @@ chmod +x cutter.sh
 ./cutter.sh
 ```
 
+Again, this process may be time-intensive (took approximately sixty minutes to run on my machine).
+
 **5. Train the Dataset**
 
 If you wish to reproduce the training, please run the main training file for the latest model, titled ``NOTE TO SELF: ADD TITLE!`` (possibly add link too).
