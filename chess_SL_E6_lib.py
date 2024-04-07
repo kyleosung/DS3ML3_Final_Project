@@ -272,6 +272,13 @@ def predict(model, fen, stochastic=True):
             fen_tensor = fen_str_to_3d_tensor(board.fen()).unsqueeze(0).to(device)
             # print(fen_tensor.shape)
             evals_list.append(float(model(fen_tensor).to('cpu')))
+
+            if board.is_checkmate():
+                if board.turn: # if white's turn, black just checkmated white
+                    evals_list[-1] = -15
+                else:
+                    evals_list[-1] = 15
+
             board.pop()
 
     evals_list = np.array(evals_list)

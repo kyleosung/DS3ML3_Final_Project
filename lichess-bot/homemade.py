@@ -13,11 +13,16 @@ import logging
 # logger.debug("message") will only print "message" if verbose logging is enabled.
 logger = logging.getLogger(__name__)
 
+import sys
+sys.path.insert(1, '..')
 
-import chess_SL_E4_lib as lib
+import chess_SL_E6_lib as lib
 import torch
 
-model_loaded = torch.load('models/model_E4-1.pth', map_location=torch.device('cpu'))
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+
+model_loaded = torch.load('../models_EL/model_E6-1.pth', map_location=device)
 
 
 class ExampleEngine(MinimalEngine):
@@ -29,6 +34,6 @@ class ExampleEngine(MinimalEngine):
 
         prediction = lib.predict(model_loaded, board.fen())
         
-        move = Move.from_uci(prediction)
+        # move = Move.from_uci(prediction)
 
-        return PlayResult(move, None)
+        return PlayResult(prediction, None)
