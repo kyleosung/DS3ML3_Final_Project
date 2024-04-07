@@ -1,0 +1,304 @@
+2024-04-07 10:06:52,852 __main__ (lichess-bot.py:1051) INFO 
+    .   _/|
+    .  // o\
+    .  || ._)  lichess-bot 2024.3.21.1
+    .  //__\
+    .  )___(   Play on Lichess with a bot
+    
+2024-04-07 10:06:52,869 lib.config (config.py:262) DEBUG Config:
+token: logger
+url: https://lichess.org/
+engine:
+  dir: ./engines/
+  name: ExampleEngine
+  working_dir: ''
+  protocol: homemade
+  ponder: true
+  polyglot:
+    enabled: false
+    book:
+      standard:
+      - engines/book1.bin
+      - engines/book2.bin
+    min_weight: 1
+    selection: weighted_random
+    max_depth: 20
+  draw_or_resign:
+    resign_enabled: false
+    resign_score: -1000
+    resign_for_egtb_minus_two: true
+    resign_moves: 3
+    offer_draw_enabled: true
+    offer_draw_score: 0
+    offer_draw_for_egtb_zero: true
+    offer_draw_moves: 10
+    offer_draw_pieces: 10
+  online_moves:
+    max_out_of_book_moves: 10
+    max_retries: 2
+    chessdb_book:
+      enabled: false
+      min_time: 20
+      move_quality: good
+      min_depth: 20
+    lichess_cloud_analysis:
+      enabled: false
+      min_time: 20
+      move_quality: best
+      max_score_difference: 50
+      min_depth: 20
+      min_knodes: 0
+    lichess_opening_explorer:
+      enabled: false
+      min_time: 20
+      source: masters
+      player_name: ''
+      sort: winrate
+      min_games: 10
+    online_egtb:
+      enabled: false
+      min_time: 20
+      max_pieces: 7
+      source: lichess
+      move_quality: best
+  lichess_bot_tbs:
+    syzygy:
+      enabled: false
+      paths:
+      - engines/syzygy
+      max_pieces: 7
+      move_quality: best
+    gaviota:
+      enabled: false
+      paths:
+      - engines/gaviota
+      max_pieces: 5
+      min_dtm_to_consider_as_wdl_1: 120
+      move_quality: best
+  homemade_options: null
+  uci_options:
+    Move Overhead: 100
+    Threads: 4
+    Hash: 512
+    SyzygyPath: ./syzygy/
+    UCI_ShowWDL: true
+  silence_stderr: false
+abort_time: 30
+fake_think_time: false
+rate_limiting_delay: 0
+move_overhead: 2000
+quit_after_all_games_finish: false
+correspondence:
+  move_time: 60
+  checkin_period: 300
+  disconnect_time: 150
+  ponder: false
+challenge:
+  concurrency: 5
+  sort_by: first
+  accept_bot: true
+  only_bot: false
+  max_increment: 20
+  min_increment: 0
+  max_base: 1800
+  min_base: 0
+  max_days: 14
+  min_days: 1
+  variants:
+  - standard
+  time_controls:
+  - bullet
+  - blitz
+  - rapid
+  - classical
+  modes:
+  - casual
+  - rated
+  bullet_requires_increment: false
+greeting:
+  hello: Hi! I'm {me}. Good luck! Type !help for a list of commands I can respond
+    to.
+  goodbye: Good game!
+  hello_spectators: Hi! I'm {me}. Type !help for a list of commands I can respond
+    to.
+  goodbye_spectators: Thanks for watching!
+matchmaking:
+  allow_matchmaking: false
+  allow_during_games: false
+  challenge_variant: random
+  challenge_timeout: 30
+  challenge_initial_time:
+  - 60
+  - 180
+  challenge_increment:
+  - 1
+  - 2
+  rating_preference: none
+  opponent_allow_tos_violation: false
+  challenge_mode: random
+  challenge_filter: none
+
+2024-04-07 10:06:52,877 lib.config (config.py:263) DEBUG ====================
+2024-04-07 10:06:52,877 lib.config (config.py:262) DEBUG Config:
+token: logger
+url: https://lichess.org/
+engine:
+  dir: ./engines/
+  name: ExampleEngine
+  working_dir: C:\Users\kyle\Documents\LocalPrograms\lichess-bot
+  protocol: homemade
+  ponder: true
+  polyglot:
+    enabled: false
+    book:
+      standard:
+      - engines/book1.bin
+      - engines/book2.bin
+    min_weight: 1
+    selection: weighted_random
+    max_depth: 20
+  draw_or_resign:
+    resign_enabled: false
+    resign_score: -1000
+    resign_for_egtb_minus_two: true
+    resign_moves: 3
+    offer_draw_enabled: true
+    offer_draw_score: 0
+    offer_draw_for_egtb_zero: true
+    offer_draw_moves: 10
+    offer_draw_pieces: 10
+  online_moves:
+    max_out_of_book_moves: 10
+    max_retries: 2
+    chessdb_book:
+      enabled: false
+      min_time: 20
+      move_quality: good
+      min_depth: 20
+    lichess_cloud_analysis:
+      enabled: false
+      min_time: 20
+      move_quality: best
+      max_score_difference: 50
+      min_depth: 20
+      min_knodes: 0
+    lichess_opening_explorer:
+      enabled: false
+      min_time: 20
+      source: masters
+      player_name: ''
+      sort: winrate
+      min_games: 10
+    online_egtb:
+      enabled: false
+      min_time: 20
+      max_pieces: 7
+      source: lichess
+      move_quality: best
+    max_depth: .inf
+  lichess_bot_tbs:
+    syzygy:
+      enabled: false
+      paths:
+      - engines/syzygy
+      max_pieces: 7
+      move_quality: best
+    gaviota:
+      enabled: false
+      paths:
+      - engines/gaviota
+      max_pieces: 5
+      min_dtm_to_consider_as_wdl_1: 120
+      move_quality: best
+  homemade_options: null
+  uci_options:
+    Move Overhead: 100
+    Threads: 4
+    Hash: 512
+    SyzygyPath: ./syzygy/
+    UCI_ShowWDL: true
+  silence_stderr: false
+  uci_ponder: false
+abort_time: 30
+fake_think_time: false
+rate_limiting_delay: 0
+move_overhead: 2000
+quit_after_all_games_finish: false
+correspondence:
+  move_time: 60
+  checkin_period: 300
+  disconnect_time: 150
+  ponder: false
+  uci_ponder: false
+challenge:
+  concurrency: 5
+  sort_by: first
+  accept_bot: true
+  only_bot: false
+  max_increment: 20
+  min_increment: 0
+  max_base: 1800
+  min_base: 0
+  max_days: 14
+  min_days: 1
+  variants:
+  - standard
+  time_controls:
+  - bullet
+  - blitz
+  - rapid
+  - classical
+  modes:
+  - casual
+  - rated
+  bullet_requires_increment: false
+  block_list: []
+  allow_list: []
+greeting:
+  hello: Hi! I'm {me}. Good luck! Type !help for a list of commands I can respond
+    to.
+  goodbye: Good game!
+  hello_spectators: Hi! I'm {me}. Type !help for a list of commands I can respond
+    to.
+  goodbye_spectators: Thanks for watching!
+matchmaking:
+  allow_matchmaking: false
+  allow_during_games: false
+  challenge_variant: random
+  challenge_timeout: 30
+  challenge_initial_time:
+  - 60
+  - 180
+  challenge_increment:
+  - 1
+  - 2
+  rating_preference: none
+  opponent_allow_tos_violation: false
+  challenge_mode: random
+  challenge_filter: none
+  block_list: []
+  challenge_days:
+  - null
+  opponent_min_rating: 600
+  opponent_max_rating: 4000
+  overrides: {}
+pgn_file_grouping: game
+
+2024-04-07 10:06:52,877 lib.config (config.py:263) DEBUG ====================
+2024-04-07 10:06:52,877 __main__ (lichess-bot.py:1054) INFO Checking engine configuration ...
+2024-04-07 10:06:53,050 matplotlib (__init__.py:350) DEBUG matplotlib data path: C:\Users\kyle\Documents\LocalPrograms\DS3ML3_Final_Project\.venv\Lib\site-packages\matplotlib\mpl-data
+2024-04-07 10:06:53,055 matplotlib (__init__.py:350) DEBUG CONFIGDIR=C:\Users\kyle\.matplotlib
+2024-04-07 10:06:53,055 matplotlib (__init__.py:1511) DEBUG interactive is False
+2024-04-07 10:06:53,055 matplotlib (__init__.py:1512) DEBUG platform is win32
+2024-04-07 10:06:53,098 matplotlib (__init__.py:350) DEBUG CACHEDIR=C:\Users\kyle\.matplotlib
+2024-04-07 10:06:53,098 matplotlib.font_manager (font_manager.py:1574) DEBUG Using fontManager instance from C:\Users\kyle\.matplotlib\fontlist-v330.json
+2024-04-07 10:06:54,841 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\kyle\\Documents\\LocalPrograms\\lichess-bot\\engines\\ExampleEngine']
+2024-04-07 10:06:54,841 __main__ (lichess-bot.py:1057) INFO Engine configuration OK
+2024-04-07 10:06:54,841 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (1): lichess.org:443
+2024-04-07 10:06:55,404 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/token/test HTTP/1.1" 200 None
+2024-04-07 10:06:55,527 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account HTTP/1.1" 200 None
+2024-04-07 10:06:55,527 __main__ (lichess-bot.py:1066) INFO Welcome KS_ChessAI!
+2024-04-07 10:06:55,527 __main__ (lichess-bot.py:225) INFO You're now connected to https://lichess.org/ and awaiting challenges.
+2024-04-07 10:06:56,375 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account/playing HTTP/1.1" 200 17
+2024-04-07 10:06:57,519 __main__ (lichess-bot.py:71) DEBUG Received SIGINT. Terminating client.
+2024-04-07 10:07:04,820 __main__ (lichess-bot.py:75) DEBUG Received second SIGINT. Quitting now.
