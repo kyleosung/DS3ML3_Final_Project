@@ -19,8 +19,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 class EvalNet(nn.Module):
     def __init__(self):
         super(EvalNet, self).__init__()
-        self.conv1 = nn.Conv2d(6, 16, kernel_size = 5, stride = 1, padding = 1,)
-        self.flatten = nn.Flatten()
+        self.conv1 = nn.Conv2d(6, 16, kernel_size = 5, stride = 1, padding = 1)
         self.fc1 = nn.Linear(576, 512)
         self.fc2 = nn.Linear(512, 1)
 
