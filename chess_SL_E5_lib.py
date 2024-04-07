@@ -250,7 +250,7 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
 
     print('Finished Training!')
 
-    torch.save(model, 'models/autosave5.pth')
+    torch.save(model, 'models_autosave/autosave5.pth')
 
     return training_loss_history, validation_loss_history
 
