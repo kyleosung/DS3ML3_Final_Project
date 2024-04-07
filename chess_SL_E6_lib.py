@@ -313,10 +313,10 @@ def predict(model, fen, stochastic=True):
     if sample <= 0.65: # 65% chance for best move
         # print('playing best move')
         return sorted_legal_moves[0]
-    elif sample <= 0.85: # 20% chance for second-best move
+    elif sample <= 0.85: # 25% chance for second-best move
         return sorted_legal_moves[1]
-    elif sample <= 0.95: #  10% chance for third-best move
+    elif sample <= 0.975: #  7.5% chance for third-best move
         return sorted_legal_moves[2]
-    else: # 5% chance for fourth-best move
+    else: # 2.5% chance for fourth-best move
         return sorted_legal_moves[3]
     
