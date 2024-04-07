@@ -257,7 +257,7 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
 
 def predict(model, fen, stochastic=True):
     board = chess.Board(fen)
-    legal_moves_list = np.array(board.legal_moves)
+    legal_moves_list = list(board.legal_moves)
     evals_list = []
 
     model.eval()
@@ -266,17 +266,22 @@ def predict(model, fen, stochastic=True):
 
             device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
             
-            is_capture = board.is_capture(move)
+            # is_capture = board.is_capture(move)
 
             board.push(move)
             fen_tensor = fen_str_to_3d_tensor(board.fen()).unsqueeze(0).to(device)
-            
-            evals_list.append(model(fen_tensor).to('cpu'))
+            # print(fen_tensor.shape)
+            evals_list.append(float(model(fen_tensor).to('cpu')))
             board.pop()
 
     evals_list = np.array(evals_list)
+    # print(evals_list)
+    # print(np.array(legal_moves_list))
+
     sorted_indices = np.argsort(evals_list)
     
+    # print(sorted_indices)
+
     if board.turn:
         '''
         if it's white's turn, we must reverse the array such that the highest evaluation is first
@@ -284,8 +289,10 @@ def predict(model, fen, stochastic=True):
         ''' 
         sorted_indices = sorted_indices[::-1]
     
+    # print(np.array(legal_moves_list).shape)
+
     # Use the sorted indices to sort legal_moves and evals_list
-    sorted_legal_moves = legal_moves_list[sorted_indices]
+    sorted_legal_moves = np.array(legal_moves_list)[sorted_indices]
     sorted_evals_list = evals_list[sorted_indices]
 
     if not stochastic: # if not using stochastic mode return best move
@@ -293,7 +300,11 @@ def predict(model, fen, stochastic=True):
 
     sample = np.random.random_sample()
 
+    # print(sample)
+    # print(sorted_legal_moves)
+
     if sample <= 0.65: # 65% chance for best move
+        # print('playing best move')
         return sorted_legal_moves[0]
     elif sample <= 0.85: # 20% chance for second-best move
         return sorted_legal_moves[1]
