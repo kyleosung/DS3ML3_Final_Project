@@ -4,9 +4,9 @@ Created by: Kyle Sung
 
 Hi there! This is the main repository for my Final Project for Datasci 3ML3 in Winter 2024. Our goal was to create a Chess AI using machine learning techniques developed in the course.
 
-**First**: If you haven't did read the paper, please do this first. It can be found in the submission box or by navigating to the portion of the repository here: [link tbd]
+**First**: If you haven't read the paper, please do this first. It can be found in the submission box or by navigating to the portion of the repository here: [link tbd]
 
-**Next**: If you haven't tried playing agaginst the bot, please do this next. Follow the instructions in the paper.
+**Next**: If you haven't tried playing agianst the bot, please do this next. Follow the instructions in the paper.
 
 #### Reproducability
 
@@ -34,7 +34,11 @@ To do this, please navigate to the [University of Toronto Computational Social S
 
 Please unzip the data in a way compatible with your machine. You may be able to do this using WinRAR or using the Command Line, but please note that the sheer size of the dataset may make this process time-intensive.
 
-Please move each of the dataset files into a folder outside the repository in the local path `../DataTrain`.
+Please move each of the dataset files into a folder outside the repository in the local path `../Data/`.
+
+```bash
+mkdir ../Data
+```
 
 **4. Parse the Dataset [NOTE TO SELF: ADD THESE TO REPO AND CHANGE LOCAL PATHS]** 
 
