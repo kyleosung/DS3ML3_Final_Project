@@ -40,15 +40,15 @@ Please move each of the dataset files into a folder outside the repository in th
 mkdir ../Data
 ```
 
-**4. Parse the Dataset [NOTE TO SELF: ADD THESE TO REPO AND CHANGE LOCAL PATHS]** 
+**4. Parse the Dataset** 
 
 Please run sequentially the bash scripts in repository.
 
 ```bash
-chmod +x splitter.sh
-./splitter.sh
-chmod +x cutter.sh
-./cutter.sh
+chmod +x scripts/cutter.sh
+./scripts/cutter.sh
+chmod +x scripts/splitter.sh
+./scripts/splitter.sh
 ```
 
 Again, this process may be time-intensive (took approximately sixty minutes to run on my machine).
