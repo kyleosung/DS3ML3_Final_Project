@@ -1,1 +1,1 @@
-cut -d ',' -f 6,7,15,16,17,18,19,25,29,35,41 ../../Data/lichess_db_standard_rated_2019-01.csv > Jan_Data_Parsed.csv
+cut -d ',' -f 6,7,15,16,17,18,19,25,29,35,41 ../Data/lichess_db_standard_rated_2019-01.csv > Jan_Data_Parsed.csv
