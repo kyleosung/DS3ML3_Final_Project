@@ -101,7 +101,8 @@ class ChessIterableDataset(IterableDataset):
 
     def __iter__(self):
         for idx, csv_file in enumerate(self.csv_files):
-            chunk_iter = pd.read_csv(csv_file, chunksize=self.chunksize)
+            # Add usecols 2024-04-09. Hopefully should make it load faster.
+            chunk_iter = pd.read_csv(csv_file, chunksize=self.chunksize, usecols=['board', 'cp', 'white_active', 'white_elo', 'black_elo'])
             
             if idx % 10 == 0:
                 # print(f'Read file {idx} of {len(self.csv_files)}')
