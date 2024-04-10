@@ -274,12 +274,17 @@ def predict(model, fen, stochastic=True):
             evals_list.append(float(model(fen_tensor).to('cpu')))
 
             if board.is_checkmate():
-                if board.turn: # if white's turn, black just checkmated white
-                    evals_list[-1] = -15
-                else:
-                    evals_list[-1] = 15
+                return move # Always make a move which gives checkmate if possible.
 
             board.pop()
+
+            # New portion (added 2024-04-09)
+            if board.is_capture(move):
+                if board.turn:
+                    evals_list[-1] += 0.5 # Modify to add piece value eventually
+                else:
+                    evals_list[-1] -= 0.5 # Modify to add piece value eventually
+    
 
     evals_list = np.array(evals_list)
     # print(evals_list)
