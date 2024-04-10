@@ -247,10 +247,12 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
             
     except KeyboardInterrupt:
         print("Manual Stop: Finished Training Early!")
+    finally:
+        torch.save(model, f'models_autosave/autosave6-4.pth')
 
     print('Finished Training!')
 
-    torch.save(model, 'models_autosave/autosave6.pth')
+    
 
     return training_loss_history, validation_loss_history
 

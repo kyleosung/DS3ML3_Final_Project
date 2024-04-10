@@ -21,7 +21,6 @@ import torch
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-
 model_loaded = torch.load('../models_EL/model_E6-2.pth', map_location=device)
 
 
