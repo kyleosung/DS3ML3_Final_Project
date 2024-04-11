@@ -16,7 +16,32 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 class EvalNet(nn.Module):
+    """
+    Neural network model for evaluating chess positions.
+
+    This model takes a chess position as input and predicts the evaluation score
+    for that position. It consists of convolutional and fully connected layers.
+
+    Attributes:
+        conv1 (nn.Conv2d): First convolutional layer.
+        conv2 (nn.Conv2d): Second convolutional layer.
+        fc1 (nn.Linear): First fully connected layer.
+        fc2 (nn.Linear): Second fully connected layer.
+
+    Methods:
+        forward(x): Performs forward pass through the network.
+    """
+
     def __init__(self):
+        """
+        Initializes the EvalNet class
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
         super(EvalNet, self).__init__()
         self.conv1 = nn.Conv2d(6, 16, kernel_size = 5, stride = 1, padding = 1)
         self.conv2 = nn.Conv2d(16, 32, kernel_size = 3, stride = 1, padding = 1) 
@@ -24,6 +49,15 @@ class EvalNet(nn.Module):
         self.fc2 = nn.Linear(512, 1)
 
     def forward(self, x):
+        """
+        Performs a forward pass through the network.
+
+        Args:
+            x (torch.Tensor): Input tensor of shape (batch_size, 6, 8, 8)
+        
+        Returns:
+            torch.Tensor: Output tensor of shape (batch_size, 1)
+        """
         x = F.leaky_relu(self.conv1(x))
         x = F.leaky_relu(self.conv2(x))
         x = x.view(x.size(0), -1)
@@ -39,6 +73,19 @@ class ChessIterableDataset(IterableDataset):
         self.chunksize = chunksize
 
     def process_chunk(self, chunk):
+        """
+        Process a chunk of data and return a list of samples.
+
+        Args:
+            chunk (pandas.DataFrame): The chunk of data to process.
+
+        Returns:
+            list: A list of samples, where each sample is a dictionary containing the following keys:
+                - 'fen': The board tensor representation.
+                - 'fen_str': The FEN string representation of the board.
+                - 'white_active': The indicator of whether it is white's turn to move.
+                - 'cp': The centipawn evaluation of the board position.
+        """
         # Process the chunk and return a list of samples
         samples = []
         for index, row in chunk.iterrows():
@@ -49,13 +96,13 @@ class ChessIterableDataset(IterableDataset):
             cp = row['cp']
             
             if '#' in str(cp) and white_active:
-                cp = 15
+                cp = 10
             elif '#' in str(cp) and not white_active:
-                cp = -15
-            elif cp > 14:
-                cp = 14
-            elif cp < -14:
-                cp = -14
+                cp = -10
+            elif cp > 9:
+                cp = 9
+            elif cp < -9:
+                cp = -9
                 
 
             # Convert data to tensors
@@ -86,13 +133,13 @@ class ChessIterableDataset(IterableDataset):
         white_active = torch.tensor(white_active, dtype=torch.float32)
 
         if '#' in str(cp) and white_active:
-            cp = 15
+            cp = 10
         elif '#' in str(cp) and not white_active:
-            cp = -15
-        elif cp > 14:
-            cp = 14
-        elif cp < -14:
-            cp = -14
+            cp = -10
+        elif cp > 9:
+            cp = 9
+        elif cp < -9:
+            cp = -9
 
         cp = torch.tensor(cp, dtype=torch.float32)
 
@@ -115,11 +162,11 @@ class ChessIterableDataset(IterableDataset):
                 
                 chunk['cp'] = pd.to_numeric(chunk['cp'], errors='coerce')
 
-                chunk.loc[(chunk['cp'].isna() | chunk['cp'].isnull() ) & (chunk.loc[chunk['cp'].isna(), 'white_active'] == 1), 'cp'] = 15
-                chunk.loc[(chunk['cp'].isna() | chunk['cp'].isnull() ) & (chunk.loc[chunk['cp'].isna(), 'white_active'] == 0), 'cp'] = -15
+                chunk.loc[(chunk['cp'].isna() | chunk['cp'].isnull() ) & (chunk.loc[chunk['cp'].isna(), 'white_active'] == 1), 'cp'] = 9
+                chunk.loc[(chunk['cp'].isna() | chunk['cp'].isnull() ) & (chunk.loc[chunk['cp'].isna(), 'white_active'] == 0), 'cp'] = -9
 
-                chunk.loc[(chunk['cp'] > 15), 'cp'] = 15
-                chunk.loc[(chunk['cp'] < -15), 'cp'] = -15
+                chunk.loc[(chunk['cp'] > 9), 'cp'] = 9
+                chunk.loc[(chunk['cp'] < -9), 'cp'] = -9
 
                 yield from self.process_chunk(chunk) # Returns a list of yielded elements
             
@@ -130,6 +177,26 @@ class ChessIterableDataset(IterableDataset):
 
 
 def fen_str_to_flat_tensor(fen):
+    """
+    Converts a FEN string representation of a chess board to a flat tensor representation.
+
+    Args:
+        fen (str): The FEN string representing the chess board.
+
+    Returns:
+        torch.Tensor: A flat tensor representation of the chess board.
+
+    Example:
+        >>> fen_str_to_flat_tensor('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')
+        tensor([[ -4.,  -2.,  -3.,  -5.,  -6.,  -3.,  -2.,  -4.],
+                [ -1.,  -1.,  -1.,  -1.,  -1.,  -1.,  -1.,  -1.],
+                [  0.,   0.,   0.,   0.,   0.,   0.,   0.,   0.],
+                [  0.,   0.,   0.,   0.,   0.,   0.,   0.,   0.],
+                [  0.,   0.,   0.,   0.,   0.,   0.,   0.,   0.],
+                [  0.,   0.,   0.,   0.,   0.,   0.,   0.,   0.],
+                [  1.,   1.,   1.,   1.,   1.,   1.,   1.,   1.],
+                [  4.,   2.,   3.,   5.,   6.,   3.,   2.,   4.]])
+    """    
     # Define a mapping from pieces to integers
     piece_to_int = {
         'P': 1, 'N': 2, 'B': 3, 'R': 4, 'Q': 5, 'K': 6,
@@ -159,6 +226,20 @@ def fen_str_to_flat_tensor(fen):
 
 
 def fen_str_to_3d_tensor(fen):
+    """
+    Converts a FEN string representation of a chess position to a 3D tensor.
+
+    Args:
+        fen (str): The FEN string representing the chess position.
+
+    Returns:
+        torch.Tensor: A 3D tensor representing the chess position, where each element
+                      corresponds to a piece on the board.
+
+    Example:
+        fen = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
+        tensor = fen_str_to_3d_tensor(fen)
+    """
     piece_to_int = {
         'P': 1, 'N': 2, 'B': 3, 'R': 4, 'Q': 5, 'K': 6,
         'p': -1, 'n': -2, 'b': -3, 'r': -4, 'q': -5, 'k': -6,
