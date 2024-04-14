@@ -16,12 +16,15 @@ logger = logging.getLogger(__name__)
 import sys
 sys.path.insert(1, '..')
 
-import chess_SL_E6_lib as lib
+# import chess_SL_E6_lib as lib
+import chess_SL_E7_lib as lib
 import torch
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-model_loaded = torch.load('../models_EL/model_E6-4.pth', map_location=device)
+# model_loaded = torch.load('../models_EL/model_E6-4.pth', map_location=device)
+
+model_loaded = torch.load('../models_EL/model_E7-0.pth', map_location=device)
 
 
 class ExampleEngine(MinimalEngine):
