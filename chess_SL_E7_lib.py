@@ -342,7 +342,7 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
 
 
 
-def predict(model, fen, stochastic=True):
+def predict(model, fen, move_number=0, stochastic=True):
     board = chess.Board(fen)
     legal_moves_list = list(board.legal_moves)
     evals_list = []
@@ -402,12 +402,12 @@ def predict(model, fen, stochastic=True):
     # print(sample)
     # print(sorted_legal_moves)
 
-    if sample <= 0.65: # 65% chance for best move
+    if sample <= 0.65 or move_number > 7: # 65% chance for best move
         # print('playing best move')
         return sorted_legal_moves[0]
-    elif sample <= 0.85: # 25% chance for second-best move
+    elif sample <= 0.85 or move_number > 5: # 25% chance for second-best move
         return sorted_legal_moves[1]
-    elif sample <= 0.975: #  7.5% chance for third-best move
+    elif sample <= 0.975 or move_number > 3: #  7.5% chance for third-best move
         return sorted_legal_moves[2]
     else: # 2.5% chance for fourth-best move
         return sorted_legal_moves[3]

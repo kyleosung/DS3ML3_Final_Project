@@ -24,7 +24,9 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # model_loaded = torch.load('../models_EL/model_E6-4.pth', map_location=device)
 
-model_loaded = torch.load('../models_EL/model_E7-0.pth', map_location=device)
+model_loaded = torch.load('../models_EL/model_E7-2.pth', map_location=device)
+
+counter = 1
 
 
 class ExampleEngine(MinimalEngine):
@@ -33,9 +35,14 @@ class ExampleEngine(MinimalEngine):
     def search(self, board: chess.Board, *args: Any, **xargs: Any) -> PlayResult:
 
         global model_loaded
+        global counter
 
-        prediction = lib.predict(model_loaded, board.fen())
+        print(f'Predicting for move {counter}')
+        prediction = lib.predict(model_loaded, board.fen(), move_number=counter)
+        counter += 1
+
         
+
         # move = Move.from_uci(prediction)
 
         return PlayResult(prediction, None)
