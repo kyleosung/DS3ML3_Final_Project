@@ -1,11 +1,11 @@
-2024-04-16 02:50:55,591 __main__ (lichess-bot.py:1051) INFO 
+2024-04-20 11:20:05,439 __main__ (lichess-bot.py:1051) INFO 
     .   _/|
     .  // o\
     .  || ._)  lichess-bot 2024.3.21.1
     .  //__\
     .  )___(   Play on Lichess with a bot
     
-2024-04-16 02:50:55,616 lib.config (config.py:262) DEBUG Config:
+2024-04-20 11:20:05,455 lib.config (config.py:262) DEBUG Config:
 token: logger
 url: https://lichess.org/
 engine:
@@ -138,8 +138,8 @@ matchmaking:
   challenge_mode: random
   challenge_filter: none
 
-2024-04-16 02:50:55,616 lib.config (config.py:263) DEBUG ====================
-2024-04-16 02:50:55,619 lib.config (config.py:262) DEBUG Config:
+2024-04-20 11:20:05,455 lib.config (config.py:263) DEBUG ====================
+2024-04-20 11:20:05,458 lib.config (config.py:262) DEBUG Config:
 token: logger
 url: https://lichess.org/
 engine:
@@ -284,159 +284,22 @@ matchmaking:
   overrides: {}
 pgn_file_grouping: game
 
-2024-04-16 02:50:55,620 lib.config (config.py:263) DEBUG ====================
-2024-04-16 02:50:55,620 __main__ (lichess-bot.py:1054) INFO Checking engine configuration ...
-2024-04-16 02:50:55,622 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
-2024-04-16 02:50:55,622 __main__ (lichess-bot.py:1057) INFO Engine configuration OK
-2024-04-16 02:50:55,625 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (1): lichess.org:443
-2024-04-16 02:50:57,097 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/token/test HTTP/1.1" 200 None
-2024-04-16 02:50:59,115 lib.lichess (lichess.py:63) DEBUG Backing off 0.0 seconds after 1 tries calling function <function Lichess.api_get at 0x0000022415B13880> with args (<lib.lichess.Lichess object at 0x000002242E6CFA90>, 'profile') and kwargs {'params': None}
-2024-04-16 02:50:59,116 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 537, in _make_request
-    response = conn.getresponse()
-               ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 466, in getresponse
-    httplib_response = super().getresponse()
-                       ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1378, in getresponse
-    response.begin()
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-                              ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 279, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 706, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1311, in recv_into
-    return self.read(nbytes, buffer)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1167, in read
-    return self._sslobj.read(len, buffer)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TimeoutError: The read operation timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
-    raise value
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 539, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 370, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='lichess.org', port=443): Read timed out. (read timeout=2)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\backoff\_sync.py", line 105, in retry
-    ret = target(*args, **kwargs)
-          ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\lichess.py", line 132, in api_get
-    response = self.session.get(url, params=params, timeout=timeout, stream=stream)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 532, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='lichess.org', port=443): Read timed out. (read timeout=2)
-
-2024-04-16 02:50:59,149 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (2): lichess.org:443
-2024-04-16 02:51:01,595 lib.lichess (lichess.py:63) DEBUG Backing off 0.0 seconds after 2 tries calling function <function Lichess.api_get at 0x0000022415B13880> with args (<lib.lichess.Lichess object at 0x000002242E6CFA90>, 'profile') and kwargs {'params': None}
-2024-04-16 02:51:01,596 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 537, in _make_request
-    response = conn.getresponse()
-               ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 466, in getresponse
-    httplib_response = super().getresponse()
-                       ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1378, in getresponse
-    response.begin()
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-                              ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 279, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 706, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1311, in recv_into
-    return self.read(nbytes, buffer)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1167, in read
-    return self._sslobj.read(len, buffer)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TimeoutError: The read operation timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
-    raise value
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 539, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 370, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='lichess.org', port=443): Read timed out. (read timeout=2)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\backoff\_sync.py", line 105, in retry
-    ret = target(*args, **kwargs)
-          ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\lichess.py", line 132, in api_get
-    response = self.session.get(url, params=params, timeout=timeout, stream=stream)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 532, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='lichess.org', port=443): Read timed out. (read timeout=2)
-
-2024-04-16 02:51:01,607 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (3): lichess.org:443
-2024-04-16 02:51:02,722 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account HTTP/1.1" 200 None
-2024-04-16 02:51:02,722 __main__ (lichess-bot.py:1066) INFO Welcome KS_ChessAI!
-2024-04-16 02:51:02,724 __main__ (lichess-bot.py:225) INFO You're now connected to https://lichess.org/ and awaiting challenges.
-2024-04-16 02:51:04,067 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account/playing HTTP/1.1" 200 17
+2024-04-20 11:20:05,458 lib.config (config.py:263) DEBUG ====================
+2024-04-20 11:20:05,459 __main__ (lichess-bot.py:1054) INFO Checking engine configuration ...
+2024-04-20 11:20:05,808 matplotlib (__init__.py:350) DEBUG matplotlib data path: C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\matplotlib\mpl-data
+2024-04-20 11:20:05,813 matplotlib (__init__.py:350) DEBUG CONFIGDIR=C:\Users\Kyle_Remote\.matplotlib
+2024-04-20 11:20:05,814 matplotlib (__init__.py:1511) DEBUG interactive is False
+2024-04-20 11:20:05,814 matplotlib (__init__.py:1512) DEBUG platform is win32
+2024-04-20 11:20:05,861 matplotlib (__init__.py:350) DEBUG CACHEDIR=C:\Users\Kyle_Remote\.matplotlib
+2024-04-20 11:20:05,864 matplotlib.font_manager (font_manager.py:1574) DEBUG Using fontManager instance from C:\Users\Kyle_Remote\.matplotlib\fontlist-v330.json
+2024-04-20 11:20:10,143 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
+2024-04-20 11:20:10,143 __main__ (lichess-bot.py:1057) INFO Engine configuration OK
+2024-04-20 11:20:10,147 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (1): lichess.org:443
+2024-04-20 11:20:10,810 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/token/test HTTP/1.1" 200 None
+2024-04-20 11:20:10,914 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account HTTP/1.1" 200 None
+2024-04-20 11:20:10,914 __main__ (lichess-bot.py:1066) INFO Welcome KS_ChessAI!
+2024-04-20 11:20:10,915 __main__ (lichess-bot.py:225) INFO You're now connected to https://lichess.org/ and awaiting challenges.
+2024-04-20 11:20:11,408 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account/playing HTTP/1.1" 200 17
+2024-04-20 11:25:11,743 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-20 11:30:11,744 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-20 11:35:11,745 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
