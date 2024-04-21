@@ -10,10 +10,12 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import IterableDataset #, DataLoader, Dataset
 
+from tqdm import tqdm
 
 torch.set_default_dtype(torch.float32)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
+MODEL_NUMBER = 8
 
 class EvalNet(nn.Module):
     """
@@ -45,10 +47,10 @@ class EvalNet(nn.Module):
         super(EvalNet, self).__init__()
         self.conv1 = nn.Conv2d(6, 16, kernel_size = 5, stride = 1, padding = 1)
         self.conv2 = nn.Conv2d(16, 32, kernel_size = 3, stride = 1, padding = 1) 
-        self.fc1 = nn.Linear(32 * 6 * 6, 512)
-        self.fc2 = nn.Linear(512, 1)
+        self.fc1 = nn.Linear(32 * 6 * 6 + 10, 384)
+        self.fc2 = nn.Linear(384, 1)
 
-    def forward(self, x):
+    def forward(self, x, piece_counts=None):
         """
         Performs a forward pass through the network.
 
@@ -61,12 +63,129 @@ class EvalNet(nn.Module):
         x = F.leaky_relu(self.conv1(x))
         x = F.leaky_relu(self.conv2(x))
         x = x.view(x.size(0), -1)
+        x = torch.cat((x, piece_counts), dim=1)
         x = F.leaky_relu(self.fc1(x))
         return self.fc2(x)   
 
-
-
 class ChessIterableDataset(IterableDataset):
+
+    def __init__(self, csv_files, chunksize=45000):
+        self.csv_files = csv_files
+        self.chunksize = chunksize
+
+    def process_chunk(self, chunk):
+        """
+        Process a chunk of data and return a list of samples.
+
+        Args:
+            chunk (pandas.DataFrame): The chunk of data to process.
+
+        Returns:
+            list: A list of samples, where each sample is a dictionary containing the following keys:
+                - 'fen': The board tensor representation.
+                - 'fen_str': The FEN string representation of the board.
+                - 'white_active': The indicator of whether it is white's turn to move.
+                - 'cp': The centipawn evaluation of the board position.
+        """
+        # Process the chunk and return a list of samples
+        samples = []
+        for index, row in chunk.iterrows():
+            
+            # Feature Variables
+            board = row['board']
+            white_active = row['white_active']
+            cp = row['cp']
+            
+            if '#' in str(cp) and white_active:
+                cp = 10
+            elif '#' in str(cp) and not white_active:
+                cp = -10
+            elif cp > 9:
+                cp = 9
+            elif cp < -9:
+                cp = -9
+                
+
+            # Convert data to tensors
+            board_tensor = fen_str_to_3d_tensor(board)
+            white_active = torch.tensor(white_active, dtype=torch.float32)
+            
+            num_pieces = get_number_of_pieces(board)
+
+            cp = torch.tensor(cp, dtype=torch.float32)
+        
+            samples.append({'fen': board_tensor, 
+                            'fen_str': board, 
+                            'white_active': white_active, 
+                            'cp': cp, 
+                            'num_pieces': num_pieces,
+            })
+        return samples
+
+
+    def __len__(self):
+        return sum(1 for _ in self.__iter__())
+
+
+    def __getitem__(self, idx):
+        board = self.dataframe.iloc[idx]['board']
+        white_active = self.dataframe.iloc[idx]['white_active']
+        cp = self.dataframe.iloc[idx]['cp']
+        
+        # Convert data to tensors
+        board_tensor = fen_str_to_3d_tensor(board)
+        white_active = torch.tensor(white_active, dtype=torch.float32)
+
+        num_pieces = get_number_of_pieces(board)
+
+        if '#' in str(cp) and white_active:
+            cp = 10
+        elif '#' in str(cp) and not white_active:
+            cp = -10
+        elif cp > 9:
+            cp = 9
+        elif cp < -9:
+            cp = -9
+
+        cp = torch.tensor(cp, dtype=torch.float32)
+
+        return {'fen': board_tensor, 'fen_str': board, 'white_active': white_active, 'cp': cp, 'num_pieces': num_pieces}
+        
+
+    def __iter__(self):
+        for idx, csv_file in enumerate(self.csv_files):
+            # Add usecols 2024-04-09. Hopefully should make it load faster.
+            chunk_iter = pd.read_csv(csv_file, chunksize=self.chunksize, 
+                                     usecols=['board', 'cp', 'white_active', 'white_elo', 'black_elo'], 
+                                     dtype = {'white_elo': 'uint16', 'black_elo': 'uint16', 'white_active': 'bool', 'cp': 'object'},
+                                     # low_memory = False,
+            )
+
+            if idx % 10 == 0:
+                # print(f'Read file {idx} of {len(self.csv_files)}')
+                pass
+
+            for chunk in chunk_iter:
+                chunk = chunk.dropna(how='any')
+                chunk = chunk.loc[chunk['white_elo'] >= 1000]
+                chunk = chunk.loc[chunk['black_elo'] >= 1000]
+                
+                chunk['cp'] = pd.to_numeric(chunk['cp'], errors='coerce')
+
+                chunk.loc[(chunk['cp'].isna() | chunk['cp'].isnull() ) & (chunk.loc[chunk['cp'].isna(), 'white_active'] == 1), 'cp'] = 9
+                chunk.loc[(chunk['cp'].isna() | chunk['cp'].isnull() ) & (chunk.loc[chunk['cp'].isna(), 'white_active'] == 0), 'cp'] = -9
+
+                chunk.loc[(chunk['cp'] > 9), 'cp'] = 9
+                chunk.loc[(chunk['cp'] < -9), 'cp'] = -9
+
+                yield from self.process_chunk(chunk) # Returns a list of yielded elements
+            
+            del chunk_iter # clean up garbage
+
+
+
+
+class ChessIterableDataset_Large(IterableDataset):
 
     def __init__(self, csv_files):
         self.csv_files = csv_files
@@ -108,12 +227,15 @@ class ChessIterableDataset(IterableDataset):
             board_tensor = fen_str_to_3d_tensor(board)
             white_active = torch.tensor(white_active, dtype=torch.float32)
             
+            num_pieces = get_number_of_pieces(board)
+
             cp = torch.tensor(cp, dtype=torch.float32)
         
             samples.append({'fen': board_tensor, 
                             'fen_str': board, 
                             'white_active': white_active, 
                             'cp': cp, 
+                            'num_pieces': num_pieces,
             })
         return samples
 
@@ -123,6 +245,23 @@ class ChessIterableDataset(IterableDataset):
 
 
     def __getitem__(self, idx):
+        """
+        Retrieves item at specified index in dataset
+
+        Note to self: this method is part of the implementation of the PyTorch Dataset interface. It is used by the DataLoader to fetch individual samples from the dataset.
+
+        Parameters
+        ----------
+        idx : int
+            index of the item to retrieve.
+
+        Returns
+        -------
+        dict
+            Contains the board state, the active player, and the centipawn value. 
+            The board state is a 3D tensor, the active player is a float tensor (1.0 for white, 0.0 for black), and the centipawn value is a float.
+
+        """
         board = self.dataframe.iloc[idx]['board']
         white_active = self.dataframe.iloc[idx]['white_active']
         cp = self.dataframe.iloc[idx]['cp']
@@ -130,6 +269,8 @@ class ChessIterableDataset(IterableDataset):
         # Convert data to tensors
         board_tensor = fen_str_to_3d_tensor(board)
         white_active = torch.tensor(white_active, dtype=torch.float32)
+
+        num_pieces = get_number_of_pieces(board)
 
         if '#' in str(cp) and white_active:
             cp = 10
@@ -142,7 +283,7 @@ class ChessIterableDataset(IterableDataset):
 
         cp = torch.tensor(cp, dtype=torch.float32)
 
-        return {'fen': board_tensor, 'fen_str': board, 'white_active': white_active, 'cp': cp}
+        return {'fen': board_tensor, 'fen_str': board, 'white_active': white_active, 'cp': cp, 'num_pieces': num_pieces}
         
 
     def __iter__(self):
@@ -150,13 +291,13 @@ class ChessIterableDataset(IterableDataset):
             # Add usecols 2024-04-09. Hopefully should make it load faster.
             dataframe = pd.read_csv(csv_file, 
                                     usecols = ['board', 'cp', 'white_active', 'white_elo', 'black_elo'], 
-                                    dtype = {'white_elo': 'uint16', 'black_elo': 'uint16'},
-                                    low_memory = False,
+                                    dtype = {'white_elo': 'uint16', 'black_elo': 'uint16', 'white_active': 'bool', 'cp': 'object'},
+                                    # low_memory = False,
             )
             
             dataframe = dataframe.dropna(how = 'any')
-            dataframe = dataframe.loc[dataframe['white_elo'] >= 1000]
-            dataframe = dataframe.loc[dataframe['black_elo'] >= 1000]
+            # dataframe = dataframe.loc[dataframe['white_elo'] >= 1000]
+            # dataframe = dataframe.loc[dataframe['black_elo'] >= 1000]
             
             dataframe['cp'] = pd.to_numeric(dataframe['cp'], errors='coerce')
 
@@ -171,6 +312,52 @@ class ChessIterableDataset(IterableDataset):
 
 
 
+# def fen_str_to_1d_array(fen):
+#     """
+#     Converts a FEN string representation of a chess board to a 1-d vector array representation.
+
+#     Args:
+#         fen (str): The FEN string representing the chess board.
+
+#     Returns:
+#         np.ndarray: A array vector representation of the chess board.
+
+#     Example:
+#         >>> fen_str_to_flat_tensor('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')
+#         tensor([[ -4.,  -2.,  -3.,  -5.,  -6.,  -3.,  -2.,  -4.],
+#                 [ -1.,  -1.,  -1.,  -1.,  -1.,  -1.,  -1.,  -1.],
+#                 [  0.,   0.,   0.,   0.,   0.,   0.,   0.,   0.],
+#                 [  0.,   0.,   0.,   0.,   0.,   0.,   0.,   0.],
+#                 [  0.,   0.,   0.,   0.,   0.,   0.,   0.,   0.],
+#                 [  0.,   0.,   0.,   0.,   0.,   0.,   0.,   0.],
+#                 [  1.,   1.,   1.,   1.,   1.,   1.,   1.,   1.],
+#                 [  4.,   2.,   3.,   5.,   6.,   3.,   2.,   4.]])
+#     """    
+#     # Define a mapping from pieces to integers
+#     piece_to_int = {
+#         'P': 1, 'N': 2, 'B': 3, 'R': 4, 'Q': 5, 'K': 6,
+#         'p': -1, 'n': -2, 'b': -3, 'r': -4, 'q': -5, 'k': -6,
+#     }
+
+#     # Split the FEN string into parts ## 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
+#     parts = fen.split(' ')
+#     ranks = parts[0].split('/') # Only process the board position (the first part)
+
+#     # Convert the ranks to a list of integers
+#     board = []
+#     for rank in ranks:
+#         for char in rank:
+#             if char.isdigit():
+#                 # If the character is a digit, add that many zeros to the board
+#                 board.extend([0] * int(char))
+#             else:
+#                 # Otherwise, add the integer representation of the piece to the board
+#                 board.append(piece_to_int[char])
+
+#     # Convert the board to a tensor
+#     board_array = np.array(board, dtype='float32')
+
+#     return board_array
 
 # def fen_str_to_flat_tensor(fen):
 #     """
@@ -262,6 +449,32 @@ def fen_str_to_3d_tensor(fen):
 
 
 def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_epochs):
+    """
+    Trains model
+
+    Parameters
+    ----------
+    model : torch.nn.Module
+        model to be trained.
+    train_data_loader : torch.utils.data.DataLoader
+        training data.
+    val_data_loader : torch.utils.data.DataLoader
+        validation data.
+    criterion : torch.nn.modules.loss._Loss
+        loss function
+    optimizer : torch.optim.Optimizer
+        optimizer
+    num_epochs : int
+        Number of epochs
+
+    Returns
+    -------
+    list
+        average training loss for each epoch
+    list
+        average validation loss for each epoch
+
+    """
     print(f'Begin Training! (on {device})')
 
     training_loss_history = []
@@ -276,7 +489,7 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
             ## TRAINING PHASE =================================
             model.train()  # Set the model to training mode
 
-            for i, train_data in enumerate(train_data_loader):
+            for i, train_data in tqdm(enumerate(train_data_loader)):
 
                 # Feature Variables
                 fen = train_data['fen'].to(device)
@@ -285,11 +498,13 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
                 # Predictor Variables
                 cp = ((train_data['cp']).to(device)).unsqueeze(1)
 
+                pieces_tensor = train_data['num_pieces'].to(device)
+
                 # Zero the parameter gradients
                 optimizer.zero_grad()
 
                 # Forward pass
-                train_outputs = model(fen)
+                train_outputs = model(fen, pieces_tensor)
 
                 train_batch_loss = criterion(train_outputs, cp)
 
@@ -309,11 +524,13 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
                     fen = val_data['fen'].to(device)
                     # white_active  = val_data['white_active'].to(device).unsqueeze(0)
 
+                    pieces_tensor = val_data['num_pieces'].to(device)
+
                     # Predictor Variables
                     cp = (val_data['cp'].to(device)).unsqueeze(1)
                     
                     # Forward pass
-                    val_outputs = model(fen)
+                    val_outputs = model(fen, pieces_tensor)
                     val_batch_loss = criterion(val_outputs, cp)
 
                     val_running_loss += val_batch_loss.item()
@@ -325,7 +542,7 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
     except KeyboardInterrupt:
         print("Manual Stop: Finished Training Early!")
     finally:
-        torch.save(model, f'models_autosave/autosave7-1.pth')
+        torch.save(model, f'models_autosave/autosave{MODEL_NUMBER}-{1}.pth')
 
     print(f'Finished Training!')
 
@@ -335,7 +552,57 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
 
 
 
+def get_number_of_pieces(fen_str):
+    """
+    Get the number of pieces of a given type and color on the board.
+
+    Parameters
+    ----------
+    board : chess.Board
+        The chess board.
+
+    Returns
+    -------
+    list of int, length 10
+        Number of pieces on the board (not including kings)
+        [white_pawns, white_knights, ... , black_rooks, black_queens]
+    """
+    
+    piece_counts = []
+    max_starting_pieces = [8, 2, 2, 2, 1]
+    values = [1, 3, 3.1, 5, 9]
+
+    board = chess.Board(fen_str)
+
+    for j, color in enumerate([chess.WHITE, chess.BLACK]): # 0 for white, 1 for black
+        for i, piece in enumerate([chess.PAWN, chess.KNIGHT, chess.BISHOP, chess.ROOK, chess.QUEEN]):
+            piece_counts.append(len(board.pieces(piece, color)) / max_starting_pieces[i] * values[i] * (-1)**j) # White pieces are positive, black pieces are negative
+    
+    return torch.tensor(piece_counts).to(device)
+
+
+
+
 def predict(model, fen, move_number=0, stochastic=True):
+    """
+    Predicts the evaluation of all legal moves in a given chess position.
+
+    Parameters
+    ----------
+    model : torch.nn.Module
+        trained PyTorch model used for prediction
+    fen : str
+        FEN string representing the chess position.
+    move_number : int, optional
+        The number of the move in the game. Default: 0.
+    stochastic : bool, optional
+        If True, predictions are stochastic (only in the first seven moves)
+        If False, predictions are deterministic
+
+    Returns
+    -------
+    chess.Move object representing the best move to play.
+    """
     board = chess.Board(fen)
     legal_moves_list = list(board.legal_moves)
     evals_list = []
@@ -351,7 +618,10 @@ def predict(model, fen, move_number=0, stochastic=True):
             board.push(move)
             fen_tensor = fen_str_to_3d_tensor(board.fen()).unsqueeze(0).to(device)
             # print(fen_tensor.shape)
-            evals_list.append(float(model(fen_tensor).to('cpu')))
+
+            pieces_counts = get_number_of_pieces(board.fen()).unsqueeze(0).to(device)
+
+            evals_list.append(float(model(fen_tensor, pieces_counts).to('cpu')))
 
             if board.is_checkmate():
                 return move # Always make a move which gives checkmate if possible.
