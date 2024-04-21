@@ -23,7 +23,7 @@ git clone https://github.com/kyleosung/DS3ML3_Final_Project.git
 You may wish to do this inside a virtual environment.
 
 ```bash
-pip install installation/requirements.txt
+pip install -r installation/requirements.txt
 ```
   
 **2.  Download the dataset.**
