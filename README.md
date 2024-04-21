@@ -25,7 +25,9 @@ You may wish to do this inside a virtual environment.
 ```bash
 pip install -r installation/requirements.txt
 ```
-  
+
+To train on a GPU (if available), please install Nvidia Cuda Toolkit. This software is available here: [Cuda Toolkit](https://developer.nvidia.com/cuda-toolkit).
+
 **2.  Download the dataset.**
 
 To do this, please navigate to the [University of Toronto Computational Social Science Lab's Chess Database](https://csslab.cs.toronto.edu/datasets/#monthly_chess_csv) and click the links corresponding to each of the datasets January through December.
