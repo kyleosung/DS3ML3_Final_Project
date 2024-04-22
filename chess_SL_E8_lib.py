@@ -156,8 +156,13 @@ class ChessIterableDataset(IterableDataset):
         for idx, csv_file in enumerate(self.csv_files):
             # Add usecols 2024-04-09. Hopefully should make it load faster.
             chunk_iter = pd.read_csv(csv_file, chunksize=self.chunksize, 
-                                     usecols=['board', 'cp', 'white_active', 'white_elo', 'black_elo'], 
-                                     dtype = {'white_elo': 'uint16', 'black_elo': 'uint16', 'white_active': 'bool', 'cp': 'object'},
+                                     usecols=['board', 'cp', 'white_active'],#, 'white_elo', 'black_elo'], 
+                                     dtype = {'board': 'object',
+                                              'white_active': 'bool', 
+                                              'cp': 'object'
+                                            #   'white_elo': 'uint16', 
+                                            #   'black_elo': 'uint16',
+                                    },
                                      # low_memory = False,
             )
 
@@ -167,8 +172,8 @@ class ChessIterableDataset(IterableDataset):
 
             for chunk in chunk_iter:
                 chunk = chunk.dropna(how='any')
-                chunk = chunk.loc[chunk['white_elo'] >= 1000]
-                chunk = chunk.loc[chunk['black_elo'] >= 1000]
+                # chunk = chunk.loc[chunk['white_elo'] >= 1000]
+                # chunk = chunk.loc[chunk['black_elo'] >= 1000]
                 
                 chunk['cp'] = pd.to_numeric(chunk['cp'], errors='coerce')
 
@@ -290,8 +295,13 @@ class ChessIterableDataset_Large(IterableDataset):
         for csv_file in self.csv_files:
             # Add usecols 2024-04-09. Hopefully should make it load faster.
             dataframe = pd.read_csv(csv_file, 
-                                    usecols = ['board', 'cp', 'white_active', 'white_elo', 'black_elo'], 
-                                    dtype = {'white_elo': 'uint16', 'black_elo': 'uint16', 'white_active': 'bool', 'cp': 'object'},
+                                    usecols = ['board', 'cp', 'white_active'],#, 'white_elo', 'black_elo'], 
+                                    dtype = {'board': 'object',
+                                             'white_active': 'bool',
+                                             'cp': 'object',
+                                            #  'white_elo': 'uint16', 
+                                            #  'black_elo': 'uint16', 
+                                    },
                                     # low_memory = False,
             )
             
