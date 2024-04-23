@@ -5,8 +5,10 @@ import pandas as pd
 
 # Sklearn
 import sklearn
-from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.svm import LinearSVR
 
 # Chess
 import chess
@@ -269,3 +271,135 @@ def test_game_model(model_loaded):
             print()
     except KeyboardInterrupt:
         print('KeyboardInterrupt: Ended early. Thanks for playing!')
+
+
+
+
+def test_game_models_democracy(models_list):
+
+    board = chess.Board()
+
+    counter = 1
+    try:
+        while True:
+            counter += 1
+            time.sleep(1)
+
+            move = predict_move_democracy(models_list, board.fen(), move_number=counter)
+            
+            print(move)
+            board.push(move)
+            print(board)
+
+            print()
+    except KeyboardInterrupt:
+        print('KeyboardInterrupt: Ended early. Thanks for playing!')
+
+
+
+def predict_cp_democracy(X_test, l, weights=None):
+    """
+    Compute the weighted average prediction for a given test set.
+
+    Parameters:
+    -----------
+    X_test : array-like
+        The test set to make predictions on.
+
+    l : list
+        A list of loaded models to be evaluated.
+
+    weights : array-like, optional
+        An array of weights of the same length as l for a weighted average.
+        If not provided, equal weights are assigned to each model.
+
+    Returns:
+    --------
+    weighted_average : ndarray
+        The weighted average prediction.
+
+    Notes:
+    ------
+    - The models in l should have a `predict` method to make predictions on X_test.
+    - If weights are not provided, equal weights are assigned to each model.
+    """
+
+    if not weights:
+        weights = [1/len(l) for i in range(len(l))]
+
+    predictions = []
+    for model in l:
+        prediction = model.predict(X_test)
+        predictions.append(prediction)
+
+    weighted_average = np.average(predictions, axis=0, weights=weights)
+
+    return weighted_average
+
+
+
+def predict_move_democracy(models_list, fen, move_number = 5, stochastic = True, weights = None):
+    '''
+    ### NOTE TO SELF: models_list should be a list of sklearn regressors with a predict method
+    '''
+
+    board = chess.Board(fen)
+    legal_moves_list = list(board.legal_moves)
+    evals_list = [0] * len(legal_moves_list)
+    
+    for i, move in enumerate(legal_moves_list):
+
+        board.push(move)
+
+        if board.is_checkmate():
+            return move # Always make a move which gives checkmate if possible.
+
+        fen_array = fen_str_to_1d_array(board.fen())
+
+        pieces_counts = get_number_of_pieces(board.fen())
+
+        inputs = np.concatenate((fen_array, pieces_counts))
+        inputs = inputs.reshape(1, -1)
+
+        eval_pred_weighted = predict_cp_democracy(inputs, models_list, weights = weights)
+
+        evals_list[i] += np.sum(eval_pred_weighted)
+
+        board.pop()
+
+        # New portion (added 2024-04-09)
+        if board.is_capture(move):
+            if board.turn:
+                evals_list[-1] += 0.25 # Modify to add piece value eventually
+            else:
+                evals_list[-1] -= 0.25 # Modify to add piece value eventually
+    
+
+    evals_list = np.array(evals_list)
+
+    sorted_indices = np.argsort(evals_list)
+    
+    if board.turn:
+        '''
+        if it's white's turn, we must reverse the array such that the highest evaluation is first
+        if it's black's turn, keep the array ascending such that the lowest evaluation for the white pieces is first
+        ''' 
+        sorted_indices = sorted_indices[::-1]
+
+    # Use the sorted indices to sort legal_moves and evals_list
+    sorted_legal_moves = np.array(legal_moves_list)[sorted_indices]
+    sorted_evals_list = evals_list[sorted_indices]
+
+    if not stochastic: # if not using stochastic mode return best move
+        return sorted_legal_moves[0]
+
+    sample = np.random.random_sample()
+
+    if sample <= 0.65 or move_number > 7: # 65% chance for best move
+        return sorted_legal_moves[0]
+    elif sample <= 0.85 or move_number > 5: # 25% chance for second-best move
+        return sorted_legal_moves[1]
+    elif sample <= 0.975 or move_number > 3: #  7.5% chance for third-best move
+        return sorted_legal_moves[2]
+    else: # 2.5% chance for fourth-best move
+        return sorted_legal_moves[3]
