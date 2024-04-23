@@ -46,8 +46,8 @@ class EvalNet(nn.Module):
         """
         super(EvalNet, self).__init__()
         self.conv1 = nn.Conv2d(6, 16, kernel_size = 5, stride = 1, padding = 1)
-        self.conv2 = nn.Conv2d(16, 30, kernel_size = 3, stride = 1, padding = 1) 
-        self.fc1 = nn.Linear(30 * 6 * 6 + 10, 256)
+        self.conv2 = nn.Conv2d(16, 24, kernel_size = 3, stride = 1, padding = 1) 
+        self.fc1 = nn.Linear(24 * 6 * 6 + 10, 256)
         self.fc2 = nn.Linear(256, 1)
 
     def forward(self, x, piece_counts=None):
