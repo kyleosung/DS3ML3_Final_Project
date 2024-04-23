@@ -491,7 +491,7 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
     validation_loss_history = []
 
     try:
-        for epoch in range(num_epochs):
+        for epoch in tqdm(range(num_epochs)):
 
             train_running_loss = 0.0
             val_running_loss = 0.0
@@ -499,7 +499,7 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
             ## TRAINING PHASE =================================
             model.train()  # Set the model to training mode
 
-            for i, train_data in tqdm(enumerate(train_data_loader)):
+            for i, train_data in enumerate(train_data_loader):
 
                 # Feature Variables
                 fen = train_data['fen'].to(device)
