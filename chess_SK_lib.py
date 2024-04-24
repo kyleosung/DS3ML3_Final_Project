@@ -350,7 +350,7 @@ def predict_cp_democracy(X_test, l, weights=None):
 
     predictions = []
     for model in l:
-        prediction = model.predict(X_test)
+        prediction = model.predict(X_test.reshape(1, -1))
         predictions.append(prediction)
 
     weighted_average = np.average(predictions, axis=0, weights=weights)
