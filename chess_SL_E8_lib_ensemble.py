@@ -8,7 +8,7 @@ import torch
 
 import time
 
-def predict_ensemble(model, fen, skmodels_list, weights=None, dl_to_sk=0.8, move_number=0, stochastic=True):
+def predict_ensemble(model, fen, skmodels_list, weights=None, dl_to_sk=0.9, move_number=0, stochastic=True):
     """
     Predicts the evaluation of all legal moves in a given chess position.
 
@@ -123,7 +123,7 @@ def predict_ensemble(model, fen, skmodels_list, weights=None, dl_to_sk=0.8, move
 
 
 
-def __test_ensemble_model(model_DL, skmodels_list, weights=None, dl_to_sk=0.8, move_number=0, stochastic=True):
+def __test_ensemble_model(model_DL, skmodels_list, weights=None, dl_to_sk=0.9, move_number=0, stochastic=True):
     board = chess.Board()
     counter = 1
     try:
