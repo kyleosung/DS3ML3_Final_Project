@@ -6,7 +6,9 @@ import numpy as np
 import chess
 import torch
 
-def predict_ensemble(model, fen, skmodels_list, weights, dl_to_sk=0.8, move_number=0, stochastic=True):
+import time
+
+def predict_ensemble(model, fen, skmodels_list, weights=None, dl_to_sk=0.8, move_number=0, stochastic=True):
     """
     Predicts the evaluation of all legal moves in a given chess position.
 
@@ -37,6 +39,9 @@ def predict_ensemble(model, fen, skmodels_list, weights, dl_to_sk=0.8, move_numb
     board = chess.Board(fen)
     legal_moves_list = list(board.legal_moves)
     evals_list = []
+
+    if not weights:
+        weights = [1/len(skmodels_list) for i in range(len(skmodels_list))]
 
     model.eval()
     with torch.no_grad():
@@ -115,3 +120,23 @@ def predict_ensemble(model, fen, skmodels_list, weights, dl_to_sk=0.8, move_numb
     else: # 2.5% chance for fourth-best move
         return sorted_legal_moves[3]
     
+
+
+
+def __test_ensemble_model(model_DL, skmodels_list, weights=None, dl_to_sk=0.8, move_number=0, stochastic=True):
+    board = chess.Board()
+    counter = 1
+    try:
+        while True:
+            counter += 1
+            time.sleep(1)
+
+            move = predict_ensemble(model_DL, board.fen(), skmodels_list, weights, move_number=counter)
+            
+            print(move)
+            board.push(move)
+            print(board)
+
+            print()
+    except KeyboardInterrupt:
+        print('KeyboardInterrupt: Ended early. Thanks for playing!')
