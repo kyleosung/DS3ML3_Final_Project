@@ -2,7 +2,7 @@
 
 Created by: Kyle Sung
 
-Hi there! This is the main repository for my Final Project for Datasci 3ML3 in Winter 2024. Our goal was to create a Chess AI using machine learning techniques developed in the course.
+Hi there! This is the main repository for my Final Project for Datasci 3ML3 in Winter 2024. The goal was to create a Chess AI using machine learning techniques developed in the course, including convolution and fully connected neural networks, ensemble methods, decision trees, and ensemble methods, to name a few.
 
 **First**: If you haven't read the paper, please do this first. It can be found in the submission box.
 
