@@ -613,6 +613,8 @@ def predict(model, fen, move_number=0, stochastic=True):
     -------
     chess.Move object representing the best move to play.
     """
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
     board = chess.Board(fen)
     legal_moves_list = list(board.legal_moves)
     evals_list = []
@@ -620,9 +622,10 @@ def predict(model, fen, move_number=0, stochastic=True):
     model.eval()
     with torch.no_grad():
         for move in legal_moves_list:
-
-            device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
             
+            if board.is_checkmate():
+                return move # Always make a move which gives checkmate if possible.
+
             # is_capture = board.is_capture(move)
 
             board.push(move)
@@ -632,9 +635,6 @@ def predict(model, fen, move_number=0, stochastic=True):
             pieces_counts = get_number_of_pieces(board.fen()).unsqueeze(0).to(device)
 
             evals_list.append(float(model(fen_tensor, pieces_counts).to('cpu')))
-
-            if board.is_checkmate():
-                return move # Always make a move which gives checkmate if possible.
 
             board.pop()
 
