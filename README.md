@@ -34,11 +34,11 @@ pip install -r installation/requirements.txt
 
 To train on a GPU (if available), please install Nvidia Cuda Toolkit. This software is available here: [Cuda Toolkit](https://developer.nvidia.com/cuda-toolkit).
 
-**2.  Download the dataset.**
+**3.  Download the dataset.**
 
 To do this, please navigate to the [University of Toronto Computational Social Science Lab's Chess Database](https://csslab.cs.toronto.edu/datasets/#monthly_chess_csv) and click the links corresponding to the January dataset.
 
-**3. Unzip the Dataset and Move the Dataset**
+**4. Unzip the Dataset and Move the Dataset**
 
 Please unzip the data in a way compatible with your machine. You may be able to do this using WinRAR or using the Command Line, but please note that the sheer size of the dataset may make this process time-intensive.
 
@@ -48,7 +48,7 @@ Please move each of the dataset files into a folder outside the repository in th
 mkdir ../Data
 ```
 
-**4. Parse the Dataset** 
+**5. Parse the Dataset** 
 
 Please run sequentially the bash scripts in repository.
 
@@ -61,16 +61,16 @@ chmod +x scripts/splitter.sh
 
 Again, this process may be time-intensive (took approximately sixty minutes to run on my machine).
 
-**5. Train the Dataset**
+**6. Train the Dataset**
 
 If you wish to reproduce the training, please run the main training file for the latest model (chess_SL_E8_lib)[https://github.com/kyleosung/DS3ML3_Final_Project/blob/main/chess_SL_E8_lib.py].
 
 My training involved running the model for a couple dozen epochs on a subset of the data, training for approximately 24 hours (different amounts based on each model trained). This may vary depending on your computing power.
 
-**6. Activate Lichess API**
+**7. Activate Lichess API**
 
 Please follow the instructions given in the [Lichess Bot API](https://github.com/lichess-bot-devs/lichess-bot).
 
 
-**7. Enjoy a Great Game of Chess!**
+**8. Enjoy a Great Game of Chess!**
 
