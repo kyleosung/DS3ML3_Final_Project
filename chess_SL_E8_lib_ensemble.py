@@ -103,7 +103,7 @@ def predict_ensemble(model, fen, skmodels_list, weights=None, dl_to_sk=0.8, move
     sorted_evals_list = evals_list[sorted_indices]
 
     if not stochastic: # if not using stochastic mode return best move
-        return sorted_legal_moves[0]
+        return sorted_legal_moves[0, 0]
 
     sample = np.random.random_sample()
 
@@ -112,13 +112,13 @@ def predict_ensemble(model, fen, skmodels_list, weights=None, dl_to_sk=0.8, move
 
     if sample <= 0.65 or move_number > 7: # 65% chance for best move
         # print(f'playing best move')
-        return sorted_legal_moves[0]
+        return sorted_legal_moves[0, 0]
     elif sample <= 0.85 or move_number > 5: # 25% chance for second-best move
-        return sorted_legal_moves[1]
+        return sorted_legal_moves[1, 0]
     elif sample <= 0.975 or move_number > 3: #  7.5% chance for third-best move
-        return sorted_legal_moves[2]
+        return sorted_legal_moves[2, 0]
     else: # 2.5% chance for fourth-best move
-        return sorted_legal_moves[3]
+        return sorted_legal_moves[3, 0]
     
 
 
