@@ -552,7 +552,7 @@ def train(model, train_data_loader, val_data_loader, criterion, optimizer, num_e
     except KeyboardInterrupt:
         print("Manual Stop: Finished Training Early!")
     finally:
-        torch.save(model, f'models_autosave/autosave{MODEL_NUMBER}-{1}.pth')
+        torch.save(model, f'models_autosave/autosave{MODEL_NUMBER}-{3}.pth')
 
     print(f'Finished Training!')
 

@@ -1,11 +1,11 @@
-2024-04-23 21:42:46,890 __main__ (lichess-bot.py:1051) INFO 
+2024-04-25 18:00:38,321 __main__ (lichess-bot.py:1051) INFO 
     .   _/|
     .  // o\
     .  || ._)  lichess-bot 2024.3.21.1
     .  //__\
     .  )___(   Play on Lichess with a bot
     
-2024-04-23 21:42:46,907 lib.config (config.py:262) DEBUG Config:
+2024-04-25 18:00:38,349 lib.config (config.py:262) DEBUG Config:
 token: logger
 url: https://lichess.org/
 engine:
@@ -138,8 +138,8 @@ matchmaking:
   challenge_mode: random
   challenge_filter: none
 
-2024-04-23 21:42:46,908 lib.config (config.py:263) DEBUG ====================
-2024-04-23 21:42:46,912 lib.config (config.py:262) DEBUG Config:
+2024-04-25 18:00:38,351 lib.config (config.py:263) DEBUG ====================
+2024-04-25 18:00:38,353 lib.config (config.py:262) DEBUG Config:
 token: logger
 url: https://lichess.org/
 engine:
@@ -284,201 +284,232 @@ matchmaking:
   overrides: {}
 pgn_file_grouping: game
 
-2024-04-23 21:42:46,912 lib.config (config.py:263) DEBUG ====================
-2024-04-23 21:42:46,912 __main__ (lichess-bot.py:1054) INFO Checking engine configuration ...
-2024-04-23 21:42:47,226 matplotlib (__init__.py:350) DEBUG matplotlib data path: C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\matplotlib\mpl-data
-2024-04-23 21:42:47,235 matplotlib (__init__.py:350) DEBUG CONFIGDIR=C:\Users\Kyle_Remote\.matplotlib
-2024-04-23 21:42:47,236 matplotlib (__init__.py:1511) DEBUG interactive is False
-2024-04-23 21:42:47,236 matplotlib (__init__.py:1512) DEBUG platform is win32
-2024-04-23 21:42:47,291 matplotlib (__init__.py:350) DEBUG CACHEDIR=C:\Users\Kyle_Remote\.matplotlib
-2024-04-23 21:42:47,295 matplotlib.font_manager (font_manager.py:1574) DEBUG Using fontManager instance from C:\Users\Kyle_Remote\.matplotlib\fontlist-v330.json
-2024-04-23 21:42:49,814 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
-2024-04-23 21:42:49,814 __main__ (lichess-bot.py:1057) INFO Engine configuration OK
-2024-04-23 21:42:49,821 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (1): lichess.org:443
-2024-04-23 21:42:50,419 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/token/test HTTP/1.1" 200 None
-2024-04-23 21:42:50,560 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account HTTP/1.1" 200 None
-2024-04-23 21:42:50,560 __main__ (lichess-bot.py:1066) INFO Welcome KS_ChessAI!
-2024-04-23 21:42:50,562 __main__ (lichess-bot.py:225) INFO You're now connected to https://lichess.org/ and awaiting challenges.
-2024-04-23 21:42:51,190 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account/playing HTTP/1.1" 200 17
-2024-04-23 21:42:52,177 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'challenge', 'challenge': {'id': 'BErrSd0c', 'url': 'https://lichess.org/BErrSd0c', 'status': 'created', 'challenger': {'id': 'checkyle', 'name': 'ChecKyle', 'rating': 1667, 'title': None, 'provisional': True, 'online': True, 'lag': 4}, 'destUser': {'id': 'ks_chessai', 'name': 'KS_ChessAI', 'rating': 2000, 'title': 'BOT', 'provisional': True}, 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'rated': False, 'speed': 'rapid', 'timeControl': {'type': 'clock', 'limit': 420, 'increment': 10, 'show': '7+10'}, 'color': 'random', 'finalColor': 'white', 'perf': {'icon': '\ue017', 'name': 'Rapid'}}}
-2024-04-23 21:42:52,178 __main__ (lichess-bot.py:455) INFO Accept Rapid casual challenge from ChecKyle (1667?) (BErrSd0c)
-2024-04-23 21:42:52,280 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/challenge/BErrSd0c/accept HTTP/1.1" 200 11
-2024-04-23 21:42:52,281 __main__ (lichess-bot.py:274) INFO --- Process Queued. Count: 1. IDs: {'BErrSd0c'}
-2024-04-23 21:42:52,281 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'gameStart', 'game': {'fullId': 'BErrSd0cM9ib', 'gameId': 'BErrSd0c', 'fen': 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1', 'color': 'black', 'lastMove': '', 'source': 'friend', 'status': {'id': 20, 'name': 'started'}, 'variant': {'key': 'standard', 'name': 'Standard'}, 'speed': 'rapid', 'perf': 'rapid', 'rated': False, 'hasMoved': False, 'opponent': {'id': 'checkyle', 'username': 'ChecKyle', 'rating': 1667}, 'isMyTurn': False, 'secondsLeft': 420, 'compat': {'bot': True, 'board': True}, 'id': 'BErrSd0c'}}
-2024-04-23 21:42:52,281 __main__ (lichess-bot.py:274) INFO --- Process Used. Count: 1. IDs: {'BErrSd0c'}
-2024-04-23 21:42:52,291 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (1): lichess.org:443
-2024-04-23 21:42:52,835 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/BErrSd0c HTTP/1.1" 200 None
-2024-04-23 21:42:52,836 __mp_main__ (lichess-bot.py:605) DEBUG Initial state: {'id': 'BErrSd0c', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'rapid', 'perf': {'name': 'Rapid'}, 'rated': False, 'createdAt': 1713922972222, 'white': {'id': 'checkyle', 'name': 'ChecKyle', 'title': None, 'rating': 1667, 'provisional': True}, 'black': {'id': 'ks_chessai', 'name': 'KS_ChessAI', 'title': 'BOT', 'rating': 2000, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 420000, 'increment': 10000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': '', 'wtime': 420000, 'btime': 420000, 'winc': 10000, 'binc': 10000, 'status': 'started'}}
-2024-04-23 21:42:52,974 matplotlib (__init__.py:350) DEBUG matplotlib data path: C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\matplotlib\mpl-data
-2024-04-23 21:42:52,978 matplotlib (__init__.py:350) DEBUG CONFIGDIR=C:\Users\Kyle_Remote\.matplotlib
-2024-04-23 21:42:52,980 matplotlib (__init__.py:1511) DEBUG interactive is False
-2024-04-23 21:42:52,980 matplotlib (__init__.py:1512) DEBUG platform is win32
-2024-04-23 21:42:53,023 matplotlib (__init__.py:350) DEBUG CACHEDIR=C:\Users\Kyle_Remote\.matplotlib
-2024-04-23 21:42:53,026 matplotlib.font_manager (font_manager.py:1574) DEBUG Using fontManager instance from C:\Users\Kyle_Remote\.matplotlib\fontlist-v330.json
-2024-04-23 21:42:54,924 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
-2024-04-23 21:42:54,925 __mp_main__ (lichess-bot.py:611) DEBUG The engine for game BErrSd0c has pid=?
-2024-04-23 21:42:54,925 __mp_main__ (lichess-bot.py:614) INFO +++ https://lichess.org/BErrSd0c/black Rapid vs ChecKyle (1667?) (BErrSd0c)
-2024-04-23 21:43:05,750 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4', 'wtime': 420000, 'btime': 420000, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:05,750 lib.conversation (conversation.py:86) INFO *** https://lichess.org/BErrSd0c/black [player] KS_ChessAI: Hi! I'm Kyle's Chess AI. Good luck!
-2024-04-23 21:43:05,752 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (2): lichess.org:443
-2024-04-23 21:43:06,279 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/chat HTTP/1.1" 200 11
-2024-04-23 21:43:06,280 lib.conversation (conversation.py:86) INFO *** https://lichess.org/BErrSd0c/black [spectator] KS_ChessAI: Hi! I'm KS_ChessAI. Type !help for a list of commands I can respond to.
-2024-04-23 21:43:06,382 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/chat HTTP/1.1" 200 11
-2024-04-23 21:43:06,383 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:06,383 __mp_main__ (lichess-bot.py:717) INFO move: 1
-2024-04-23 21:43:06,383 lib.engine_wrapper (engine_wrapper.py:687) INFO Searching for time 10 seconds for game BErrSd0c
-2024-04-23 21:43:06,539 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:06,643 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/c7c5?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:06,644 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'chatLine', 'room': 'player', 'username': 'KS_ChessAI', 'text': "Hi! I'm Kyle's Chess AI. Good luck!"}
-2024-04-23 21:43:06,644 lib.conversation (conversation.py:45) INFO *** https://lichess.org/BErrSd0c/black [player] KS_ChessAI: Hi! I'm Kyle's Chess AI. Good luck!
-2024-04-23 21:43:06,644 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'chatLine', 'room': 'spectator', 'username': 'KS_ChessAI', 'text': "Hi! I'm KS_ChessAI. Type !help for a list of commands I can respond to."}
-2024-04-23 21:43:06,645 lib.conversation (conversation.py:45) INFO *** https://lichess.org/BErrSd0c/black [spectator] KS_ChessAI: Hi! I'm KS_ChessAI. Type !help for a list of commands I can respond to.
-2024-04-23 21:43:06,645 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5', 'wtime': 420000, 'btime': 420000, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:11,404 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3', 'wtime': 425340, 'btime': 420000, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:11,404 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:11,404 __mp_main__ (lichess-bot.py:717) INFO move: 2
-2024-04-23 21:43:11,404 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 425340 btime 418000 for game BErrSd0c
-2024-04-23 21:43:11,553 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:11,657 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/b8c6?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:11,658 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6', 'wtime': 425340, 'btime': 429750, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:12,289 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4', 'wtime': 434820, 'btime': 429750, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:12,290 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:12,290 __mp_main__ (lichess-bot.py:717) INFO move: 3
-2024-04-23 21:43:12,291 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 434820 btime 427749 for game BErrSd0c
-2024-04-23 21:43:12,407 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:12,507 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/c6b8?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:12,507 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8', 'wtime': 434820, 'btime': 439530, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:13,565 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5', 'wtime': 443870, 'btime': 439530, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:13,566 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:13,566 __mp_main__ (lichess-bot.py:717) INFO move: 4
-2024-04-23 21:43:13,566 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 443870 btime 437530 for game BErrSd0c
-2024-04-23 21:43:13,592 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:13,691 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/e7e6?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:13,692 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6', 'wtime': 443870, 'btime': 449410, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:15,296 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3', 'wtime': 452360, 'btime': 449410, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:15,297 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:15,297 __mp_main__ (lichess-bot.py:717) INFO move: 5
-2024-04-23 21:43:15,297 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 452360 btime 447410 for game BErrSd0c
-2024-04-23 21:43:15,514 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:15,618 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/g8f6?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:15,619 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6', 'wtime': 452360, 'btime': 459090, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:16,336 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4', 'wtime': 461800, 'btime': 459090, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:16,336 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:16,336 __mp_main__ (lichess-bot.py:717) INFO move: 6
-2024-04-23 21:43:16,337 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 461800 btime 457090 for game BErrSd0c
-2024-04-23 21:43:16,353 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:16,452 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/f6e4?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:16,453 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4', 'wtime': 461800, 'btime': 468970, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:17,501 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4', 'wtime': 470850, 'btime': 468970, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:17,501 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:17,501 __mp_main__ (lichess-bot.py:717) INFO move: 7
-2024-04-23 21:43:17,502 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 470850 btime 466970 for game BErrSd0c
-2024-04-23 21:43:17,529 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:17,628 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/d7d5?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:17,629 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5', 'wtime': 470850, 'btime': 478840, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:22,247 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5', 'wtime': 476340, 'btime': 478840, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:22,248 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:22,248 __mp_main__ (lichess-bot.py:717) INFO move: 8
-2024-04-23 21:43:22,248 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 476340 btime 476840 for game BErrSd0c
-2024-04-23 21:43:22,444 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:22,550 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/d8g5?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:22,550 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5', 'wtime': 476340, 'btime': 488540, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:23,479 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5', 'wtime': 485510, 'btime': 488540, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:23,479 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:23,479 __mp_main__ (lichess-bot.py:717) INFO move: 9
-2024-04-23 21:43:23,480 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 485510 btime 486540 for game BErrSd0c
-2024-04-23 21:43:23,573 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:23,673 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/b7b6?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:23,673 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6', 'wtime': 485510, 'btime': 498350, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:25,393 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5', 'wtime': 493890, 'btime': 498350, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:25,396 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:25,396 __mp_main__ (lichess-bot.py:717) INFO move: 10
-2024-04-23 21:43:25,396 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 493890 btime 496349 for game BErrSd0c
-2024-04-23 21:43:25,423 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:25,526 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/e8e7?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:25,527 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7', 'wtime': 493890, 'btime': 508210, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:27,767 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5', 'wtime': 501800, 'btime': 508210, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:27,768 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:27,768 __mp_main__ (lichess-bot.py:717) INFO move: 11
-2024-04-23 21:43:27,768 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 501800 btime 506209 for game BErrSd0c
-2024-04-23 21:43:27,879 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:27,985 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/b8d7?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:27,985 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7', 'wtime': 501800, 'btime': 517990, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:29,222 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7', 'wtime': 510660, 'btime': 517990, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:29,223 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:29,224 __mp_main__ (lichess-bot.py:717) INFO move: 12
-2024-04-23 21:43:29,224 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 510660 btime 515989 for game BErrSd0c
-2024-04-23 21:43:29,294 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:29,398 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/f7f6?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:29,400 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6', 'wtime': 510660, 'btime': 527820, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:31,720 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3', 'wtime': 518470, 'btime': 527820, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:31,721 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:31,721 __mp_main__ (lichess-bot.py:717) INFO move: 13
-2024-04-23 21:43:31,721 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 518470 btime 525819 for game BErrSd0c
-2024-04-23 21:43:31,818 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:31,920 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/h8g8?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:31,921 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8', 'wtime': 518470, 'btime': 537620, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:34,813 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6', 'wtime': 525680, 'btime': 537620, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:34,814 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:34,814 __mp_main__ (lichess-bot.py:717) INFO move: 14
-2024-04-23 21:43:34,815 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 525680 btime 535619 for game BErrSd0c
-2024-04-23 21:43:34,928 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:35,031 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/a7b6?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:35,032 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6', 'wtime': 525680, 'btime': 547400, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:35,947 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6 d7b6', 'wtime': 534860, 'btime': 547400, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:35,948 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:35,948 __mp_main__ (lichess-bot.py:717) INFO move: 15
-2024-04-23 21:43:35,948 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 534860 btime 545400 for game BErrSd0c
-2024-04-23 21:43:36,037 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:36,137 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/e7d6?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:36,138 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6 d7b6 e7d6', 'wtime': 534860, 'btime': 557210, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:37,916 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6 d7b6 e7d6 b6a8', 'wtime': 543180, 'btime': 557210, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:37,917 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:37,917 __mp_main__ (lichess-bot.py:717) INFO move: 16
-2024-04-23 21:43:37,917 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 543180 btime 555210 for game BErrSd0c
-2024-04-23 21:43:37,969 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:38,071 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/e6e5?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:38,072 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6 d7b6 e7d6 b6a8 e6e5', 'wtime': 543180, 'btime': 567060, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:39,217 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6 d7b6 e7d6 b6a8 e6e5 a8b6', 'wtime': 552130, 'btime': 567060, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:39,218 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:39,218 __mp_main__ (lichess-bot.py:717) INFO move: 17
-2024-04-23 21:43:39,218 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 552130 btime 565060 for game BErrSd0c
-2024-04-23 21:43:39,343 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:39,443 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/c8h3?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:39,443 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6 d7b6 e7d6 b6a8 e6e5 a8b6 c8h3', 'wtime': 552130, 'btime': 576840, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:47,362 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6 d7b6 e7d6 b6a8 e6e5 a8b6 c8h3 d1d5', 'wtime': 554310, 'btime': 576840, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:47,364 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:47,364 __mp_main__ (lichess-bot.py:717) INFO move: 18
-2024-04-23 21:43:47,365 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 554310 btime 574839 for game BErrSd0c
-2024-04-23 21:43:47,375 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:47,482 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/d6e7?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:47,482 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6 d7b6 e7d6 b6a8 e6e5 a8b6 c8h3 d1d5 d6e7', 'wtime': 554310, 'btime': 586720, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:53,623 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6 d7b6 e7d6 b6a8 e6e5 a8b6 c8h3 d1d5 d6e7 b5c4', 'wtime': 558270, 'btime': 586720, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:53,624 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:53,624 __mp_main__ (lichess-bot.py:717) INFO move: 19
-2024-04-23 21:43:53,624 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 558270 btime 584720 for game BErrSd0c
-2024-04-23 21:43:53,694 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:53,798 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/h3g2?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:53,800 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6 d7b6 e7d6 b6a8 e6e5 a8b6 c8h3 d1d5 d6e7 b5c4 h3g2', 'wtime': 558270, 'btime': 596550, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:55,408 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6 d7b6 e7d6 b6a8 e6e5 a8b6 c8h3 d1d5 d6e7 b5c4 h3g2 d5e6', 'wtime': 566760, 'btime': 596550, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:55,408 __mp_main__ (lichess-bot.py:716) INFO 
-2024-04-23 21:43:55,408 __mp_main__ (lichess-bot.py:717) INFO move: 20
-2024-04-23 21:43:55,409 lib.engine_wrapper (engine_wrapper.py:709) INFO Searching for wtime 566760 btime 594550 for game BErrSd0c
-2024-04-23 21:43:55,415 lib.engine_wrapper (engine_wrapper.py:322) INFO Source: Engine
-2024-04-23 21:43:55,518 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/move/e7d8?offeringDraw=false HTTP/1.1" 200 11
-2024-04-23 21:43:55,519 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6 d7b6 e7d6 b6a8 e6e5 a8b6 c8h3 d1d5 d6e7 b5c4 h3g2 d5e6 e7d8', 'wtime': 566760, 'btime': 606440, 'winc': 10000, 'binc': 10000, 'status': 'started'}
-2024-04-23 21:43:57,022 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4 c7c5 g1f3 b8c6 d2d4 c6b8 d4c5 e7e6 b1c3 g8f6 f1c4 f6e4 c3e4 d7d5 c1g5 d8g5 e4g5 b7b6 c4b5 e8e7 f3e5 b8d7 e5d7 f7f6 g5f3 h8g8 c5b6 a7b6 d7b6 e7d6 b6a8 e6e5 a8b6 c8h3 d1d5 d6e7 b5c4 h3g2 d5e6 e7d8 e6d7', 'wtime': 565520, 'btime': 606440, 'winc': 10000, 'binc': 10000, 'status': 'mate', 'winner': 'white'}
-2024-04-23 21:43:57,023 __mp_main__ (lichess-bot.py:816) INFO ChecKyle won!
-2024-04-23 21:43:57,024 __mp_main__ (lichess-bot.py:827) INFO Game won by checkmate.
-2024-04-23 21:43:57,024 lib.conversation (conversation.py:86) INFO *** https://lichess.org/BErrSd0c/black [player] KS_ChessAI: Good game, thanks for playing! If you haven't read the paper yet, please consider giving it a read.
-2024-04-23 21:43:57,024 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'gameFinish', 'game': {'fullId': 'BErrSd0cM9ib', 'gameId': 'BErrSd0c', 'fen': '3k1br1/3Q2pp/1N3p2/4p3/2B5/5N2/PPP2PbP/R3K2R b KQ - 3 21', 'color': 'black', 'lastMove': 'e6d7', 'source': 'friend', 'status': {'id': 30, 'name': 'mate'}, 'variant': {'key': 'standard', 'name': 'Standard'}, 'speed': 'rapid', 'perf': 'rapid', 'rated': False, 'hasMoved': True, 'opponent': {'id': 'checkyle', 'username': 'ChecKyle', 'rating': 1667}, 'isMyTurn': False, 'secondsLeft': 606, 'winner': 'white', 'compat': {'bot': True, 'board': True}, 'id': 'BErrSd0c'}}
-2024-04-23 21:43:57,133 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/chat HTTP/1.1" 200 11
-2024-04-23 21:43:57,133 lib.conversation (conversation.py:86) INFO *** https://lichess.org/BErrSd0c/black [spectator] KS_ChessAI: Thanks for watching!
-2024-04-23 21:43:57,232 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/BErrSd0c/chat HTTP/1.1" 200 11
-2024-04-23 21:43:57,233 __mp_main__ (lichess-bot.py:790) INFO --- https://lichess.org/BErrSd0c/black Game over
-2024-04-23 21:43:57,234 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'local_game_done', 'game': {'id': 'BErrSd0c', 'pgn': '', 'complete': True}}
-2024-04-23 21:43:57,234 __main__ (lichess-bot.py:274) INFO +++ Process Freed. Count: 0. IDs: None
-2024-04-23 21:47:51,657 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-23 21:52:51,657 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-23 21:57:51,657 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-23 22:02:51,657 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 18:00:38,353 lib.config (config.py:263) DEBUG ====================
+2024-04-25 18:00:38,354 __main__ (lichess-bot.py:1054) INFO Checking engine configuration ...
+2024-04-25 18:00:38,357 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
+2024-04-25 18:00:38,357 __main__ (lichess-bot.py:1057) INFO Engine configuration OK
+2024-04-25 18:00:38,360 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (1): lichess.org:443
+2024-04-25 18:00:38,666 lib.lichess (lichess.py:63) DEBUG Backing off 0.1 seconds after 1 tries calling function <function Lichess.api_post at 0x000001E0C5D53BA0> with args (<lib.lichess.Lichess object at 0x000001E0E7F33B50>, 'token_test') and kwargs {'data': 'lip_r4E9TokqtbYPQx8ElZQ4'}
+2024-04-25 18:00:38,678 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
+    conn.connect()
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 653, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 465, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 509, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1108, in _create
+    self.do_handshake()
+  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1379, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
+    conn.connect()
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 653, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 465, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 509, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1108, in _create
+    self.do_handshake()
+  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1379, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\lichess.py", line 214, in api_post
+    response = self.session.post(url, data=data, headers=headers, params=params, json=payload, timeout=2)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+
+2024-04-25 18:00:38,765 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (2): lichess.org:443
+2024-04-25 18:00:39,013 lib.lichess (lichess.py:63) DEBUG Backing off 0.1 seconds after 2 tries calling function <function Lichess.api_post at 0x000001E0C5D53BA0> with args (<lib.lichess.Lichess object at 0x000001E0E7F33B50>, 'token_test') and kwargs {'data': 'lip_r4E9TokqtbYPQx8ElZQ4'}
+2024-04-25 18:00:39,015 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
+    conn.connect()
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 653, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 465, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 509, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1108, in _create
+    self.do_handshake()
+  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1379, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
+    conn.connect()
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 653, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 465, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 509, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1108, in _create
+    self.do_handshake()
+  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1379, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\lichess.py", line 214, in api_post
+    response = self.session.post(url, data=data, headers=headers, params=params, json=payload, timeout=2)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+
+2024-04-25 18:00:39,080 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (3): lichess.org:443
+2024-04-25 18:00:39,632 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/token/test HTTP/1.1" 200 None
+2024-04-25 18:00:39,741 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account HTTP/1.1" 200 None
+2024-04-25 18:00:39,742 __main__ (lichess-bot.py:1066) INFO Welcome KS_ChessAI!
+2024-04-25 18:00:39,747 __main__ (lichess-bot.py:225) INFO You're now connected to https://lichess.org/ and awaiting challenges.
+2024-04-25 18:00:40,572 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account/playing HTTP/1.1" 200 17
+2024-04-25 18:05:41,004 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 18:10:41,005 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 18:15:41,005 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 18:20:41,005 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 18:25:41,006 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 18:30:41,006 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 18:35:41,006 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 18:40:41,007 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 18:45:41,008 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 18:50:41,007 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 18:55:41,008 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 19:00:41,010 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 19:00:41,014 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-25 19:00:41,636 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-25 19:05:41,010 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 19:10:41,011 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 19:15:41,011 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 19:20:41,011 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 19:25:41,013 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 19:30:41,012 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 19:35:41,013 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
