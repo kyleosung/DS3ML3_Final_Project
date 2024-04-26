@@ -1,11 +1,11 @@
-2024-04-25 18:00:38,321 __main__ (lichess-bot.py:1051) INFO 
+2024-04-25 23:17:27,958 __main__ (lichess-bot.py:1051) INFO 
     .   _/|
     .  // o\
     .  || ._)  lichess-bot 2024.3.21.1
     .  //__\
     .  )___(   Play on Lichess with a bot
     
-2024-04-25 18:00:38,349 lib.config (config.py:262) DEBUG Config:
+2024-04-25 23:17:27,982 lib.config (config.py:262) DEBUG Config:
 token: logger
 url: https://lichess.org/
 engine:
@@ -138,8 +138,8 @@ matchmaking:
   challenge_mode: random
   challenge_filter: none
 
-2024-04-25 18:00:38,351 lib.config (config.py:263) DEBUG ====================
-2024-04-25 18:00:38,353 lib.config (config.py:262) DEBUG Config:
+2024-04-25 23:17:27,983 lib.config (config.py:263) DEBUG ====================
+2024-04-25 23:17:27,989 lib.config (config.py:262) DEBUG Config:
 token: logger
 url: https://lichess.org/
 engine:
@@ -284,232 +284,259 @@ matchmaking:
   overrides: {}
 pgn_file_grouping: game
 
-2024-04-25 18:00:38,353 lib.config (config.py:263) DEBUG ====================
-2024-04-25 18:00:38,354 __main__ (lichess-bot.py:1054) INFO Checking engine configuration ...
-2024-04-25 18:00:38,357 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
-2024-04-25 18:00:38,357 __main__ (lichess-bot.py:1057) INFO Engine configuration OK
-2024-04-25 18:00:38,360 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (1): lichess.org:443
-2024-04-25 18:00:38,666 lib.lichess (lichess.py:63) DEBUG Backing off 0.1 seconds after 1 tries calling function <function Lichess.api_post at 0x000001E0C5D53BA0> with args (<lib.lichess.Lichess object at 0x000001E0E7F33B50>, 'token_test') and kwargs {'data': 'lip_r4E9TokqtbYPQx8ElZQ4'}
-2024-04-25 18:00:38,678 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
-    raise new_e
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
-    self._validate_conn(conn)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
-    conn.connect()
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 653, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-               ^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 465, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 509, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
-    return self.sslsocket_class._create(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1108, in _create
-    self.do_handshake()
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1379, in do_handshake
-    self._sslobj.do_handshake()
-ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
-    raise new_e
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
-    self._validate_conn(conn)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
-    conn.connect()
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 653, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-               ^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 465, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 509, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
-    return self.sslsocket_class._create(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1108, in _create
-    self.do_handshake()
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1379, in do_handshake
-    self._sslobj.do_handshake()
-urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\backoff\_sync.py", line 105, in retry
-    ret = target(*args, **kwargs)
-          ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\lichess.py", line 214, in api_post
-    response = self.session.post(url, data=data, headers=headers, params=params, json=payload, timeout=2)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 637, in post
-    return self.request("POST", url, data=data, json=json, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
-
-2024-04-25 18:00:38,765 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (2): lichess.org:443
-2024-04-25 18:00:39,013 lib.lichess (lichess.py:63) DEBUG Backing off 0.1 seconds after 2 tries calling function <function Lichess.api_post at 0x000001E0C5D53BA0> with args (<lib.lichess.Lichess object at 0x000001E0E7F33B50>, 'token_test') and kwargs {'data': 'lip_r4E9TokqtbYPQx8ElZQ4'}
-2024-04-25 18:00:39,015 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
-    raise new_e
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
-    self._validate_conn(conn)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
-    conn.connect()
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 653, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-               ^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 465, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 509, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
-    return self.sslsocket_class._create(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1108, in _create
-    self.do_handshake()
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1379, in do_handshake
-    self._sslobj.do_handshake()
-ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
-    raise new_e
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
-    self._validate_conn(conn)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
-    conn.connect()
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 653, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-               ^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 465, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 509, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
-    return self.sslsocket_class._create(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1108, in _create
-    self.do_handshake()
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1379, in do_handshake
-    self._sslobj.do_handshake()
-urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\backoff\_sync.py", line 105, in retry
-    ret = target(*args, **kwargs)
-          ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\lichess.py", line 214, in api_post
-    response = self.session.post(url, data=data, headers=headers, params=params, json=payload, timeout=2)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 637, in post
-    return self.request("POST", url, data=data, json=json, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
-
-2024-04-25 18:00:39,080 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (3): lichess.org:443
-2024-04-25 18:00:39,632 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/token/test HTTP/1.1" 200 None
-2024-04-25 18:00:39,741 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account HTTP/1.1" 200 None
-2024-04-25 18:00:39,742 __main__ (lichess-bot.py:1066) INFO Welcome KS_ChessAI!
-2024-04-25 18:00:39,747 __main__ (lichess-bot.py:225) INFO You're now connected to https://lichess.org/ and awaiting challenges.
-2024-04-25 18:00:40,572 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account/playing HTTP/1.1" 200 17
-2024-04-25 18:05:41,004 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:10:41,005 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:15:41,005 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:20:41,005 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:25:41,006 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:30:41,006 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:35:41,006 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:40:41,007 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:45:41,008 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:50:41,007 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:55:41,008 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:00:41,010 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:00:41,014 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
-2024-04-25 19:00:41,636 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
-2024-04-25 19:05:41,010 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:10:41,011 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:15:41,011 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:20:41,011 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:25:41,013 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:30:41,012 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:35:41,013 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 23:17:27,989 lib.config (config.py:263) DEBUG ====================
+2024-04-25 23:17:27,991 __main__ (lichess-bot.py:1054) INFO Checking engine configuration ...
+2024-04-25 23:17:27,994 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
+2024-04-25 23:17:27,994 __main__ (lichess-bot.py:1057) INFO Engine configuration OK
+2024-04-25 23:17:27,997 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (1): lichess.org:443
+2024-04-25 23:17:28,632 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/token/test HTTP/1.1" 200 None
+2024-04-25 23:17:28,741 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account HTTP/1.1" 200 None
+2024-04-25 23:17:28,741 __main__ (lichess-bot.py:1066) INFO Welcome KS_ChessAI!
+2024-04-25 23:17:28,742 __main__ (lichess-bot.py:225) INFO You're now connected to https://lichess.org/ and awaiting challenges.
+2024-04-25 23:17:29,359 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account/playing HTTP/1.1" 200 17
+2024-04-25 23:22:29,762 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 23:27:29,762 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 23:32:29,763 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 23:37:29,763 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 23:42:29,764 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 23:47:29,764 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 23:52:29,764 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-25 23:57:29,765 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 00:02:29,766 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 00:07:29,766 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 00:12:29,766 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 00:17:29,663 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 00:17:30,212 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 00:17:30,213 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 00:22:29,767 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 00:27:29,768 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 00:32:29,769 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 00:37:29,769 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 00:42:29,769 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 00:47:29,772 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 00:52:29,772 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 00:57:29,773 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 01:02:29,773 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 01:07:29,774 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 01:12:29,774 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 01:17:29,776 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 01:17:34,443 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 01:17:34,995 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 01:22:29,776 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 01:27:29,776 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 01:32:29,776 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 01:37:29,776 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 01:42:29,777 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 01:47:29,777 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 01:52:29,777 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 01:57:29,778 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 02:02:29,778 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 02:07:29,778 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 02:12:29,778 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 02:17:29,779 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 02:17:38,668 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 02:17:39,203 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 02:22:29,779 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 02:27:29,779 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 02:32:29,779 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 02:37:29,779 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 02:42:29,780 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 02:47:29,781 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 02:52:29,781 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 02:57:29,781 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 03:02:29,782 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 03:07:29,783 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 03:12:29,783 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 03:17:29,783 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 03:17:42,437 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 03:17:43,016 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 03:22:29,784 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 03:27:29,785 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 03:32:29,786 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 03:37:29,786 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 03:42:29,786 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 03:47:29,786 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 03:52:29,787 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 03:57:29,787 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 04:02:29,788 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 04:07:29,789 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 04:12:29,789 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 04:17:29,789 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 04:17:46,196 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 04:17:46,787 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 04:22:29,790 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 04:27:29,791 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 04:32:29,792 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 04:37:29,792 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 04:42:29,792 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 04:47:29,792 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 04:52:29,793 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 04:57:29,794 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 05:02:29,795 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 05:07:29,795 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 05:12:29,795 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 05:17:29,796 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 05:17:50,444 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 05:17:51,032 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 05:22:29,797 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 05:27:29,797 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 05:32:29,797 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 05:37:29,798 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 05:42:29,798 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 05:47:29,799 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 05:52:29,800 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 05:57:29,800 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 06:02:29,800 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 06:07:29,800 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 06:12:29,800 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 06:17:29,800 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 06:17:53,872 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 06:17:54,425 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 06:22:29,801 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 06:27:29,802 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 06:32:29,802 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 06:37:29,802 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 06:42:29,802 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 06:47:29,802 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 06:52:29,804 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 06:57:29,804 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 07:02:29,804 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 07:07:29,804 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 07:12:29,805 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 07:17:29,806 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 07:17:56,843 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 07:17:57,400 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 07:22:29,807 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 07:27:29,809 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 07:32:29,811 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 07:37:29,812 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 07:42:29,813 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 07:47:29,815 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 07:52:29,816 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 07:57:29,817 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 08:02:29,821 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 08:07:29,821 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 08:12:29,823 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 08:17:29,824 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 08:18:00,122 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 08:18:00,677 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 08:22:29,824 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 08:27:29,825 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 08:32:29,826 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 08:37:29,826 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 08:42:29,826 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 08:47:29,827 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 08:52:29,827 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 08:57:29,827 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 09:02:29,827 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 09:07:29,828 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 09:12:29,828 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 09:17:29,829 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 09:18:02,766 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 09:18:03,375 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 09:22:29,829 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 09:27:29,829 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 09:32:29,830 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 09:37:29,830 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 09:42:29,831 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 09:47:29,831 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 09:52:29,832 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 09:57:29,831 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 10:02:29,832 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 10:07:29,832 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 10:12:29,833 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 10:17:29,833 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 10:18:05,125 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 10:18:05,797 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 10:22:29,833 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 10:27:29,834 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 10:32:29,834 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 10:37:29,835 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 10:42:29,835 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 10:47:29,834 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 10:52:29,835 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 10:57:29,835 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 11:02:29,835 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 11:07:29,836 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 11:12:29,836 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 11:17:29,837 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 11:18:07,945 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 11:18:08,520 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 11:22:29,837 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 11:27:29,838 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 11:32:29,838 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 11:37:29,840 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 11:42:29,839 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 11:47:29,839 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 11:52:29,840 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 11:57:29,840 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 12:02:29,840 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 12:07:29,840 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 12:12:29,840 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 12:17:29,840 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 12:18:10,492 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 12:18:11,074 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 12:22:29,840 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 12:27:29,840 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 12:32:29,841 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 12:37:29,841 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 12:42:29,841 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 12:47:29,841 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 12:52:29,842 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 12:57:29,844 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 13:02:29,845 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 13:07:29,845 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 13:12:29,846 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 13:17:29,846 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 13:18:13,641 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 13:18:14,224 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 13:22:29,846 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 13:27:29,848 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 13:32:29,848 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 13:37:29,849 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 13:42:29,849 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 13:47:29,849 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 13:52:29,849 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 13:57:29,850 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 14:02:29,850 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 14:07:29,851 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 14:12:29,850 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 14:17:29,851 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 14:18:15,956 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 14:18:16,534 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 14:22:29,851 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 14:27:29,851 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 14:32:29,852 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 14:37:29,852 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 14:42:29,852 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 14:47:29,853 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 14:52:29,853 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 14:57:29,853 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 15:02:29,854 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 15:07:29,854 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 15:12:29,854 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 15:17:29,854 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 15:18:18,285 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 15:18:18,835 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 15:22:29,855 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 15:27:29,855 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 15:32:29,857 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 15:37:29,856 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 15:42:29,856 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 15:47:29,857 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 15:52:29,857 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 15:57:29,860 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 16:02:29,860 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 16:07:29,860 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 16:12:29,861 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 16:17:29,861 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 16:18:21,098 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 16:18:21,672 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
+2024-04-26 16:22:29,862 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 16:27:29,862 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 16:32:29,862 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 16:37:29,862 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 16:42:29,865 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 16:47:29,865 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 16:52:29,866 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
+2024-04-26 16:57:29,867 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
