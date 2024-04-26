@@ -63,7 +63,7 @@ Again, this process may be time-intensive (took approximately sixty minutes to r
 
 **6. Train the Dataset**
 
-If you wish to reproduce the training, please run the main training file for the latest model (chess_SL_E8_lib)[https://github.com/kyleosung/DS3ML3_Final_Project/blob/main/chess_SL_E8_lib.py].
+If you wish to reproduce the training, please run the main training file for the latest model [chess_SL_E8_lib](https://github.com/kyleosung/DS3ML3_Final_Project/blob/main/chess_SL_E8_lib.py).
 
 My training involved running the model for a couple dozen epochs on a subset of the data, training for approximately 24 hours (different amounts based on each model trained). This may vary depending on your computing power.
 
