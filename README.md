@@ -63,13 +63,29 @@ Again, this process may be time-intensive (took approximately sixty minutes to r
 
 **6. Train the Dataset**
 
-If you wish to reproduce the training, please run the main training file for the latest model [chess_SL_E8_lib](https://github.com/kyleosung/DS3ML3_Final_Project/blob/main/chess_SL_E8_lib.py).
+If you wish to toy around with the model, please use the file specially curated for testing called [chess_ensemble__test_prediction.ipynb](https://github.com/kyleosung/DS3ML3_Final_Project/blob/main/chess_ensemble__test_prediction.ipynb).
+
+To look more at the current architecture or the file used to train, please run the main library file for the latest model [chess_SL_E8_lib](https://github.com/kyleosung/DS3ML3_Final_Project/blob/main/chess_SL_E8_lib.py) and the main training notebook [chess_SL_E8_train.ipynb](https://github.com/kyleosung/DS3ML3_Final_Project/blob/main/chess_SL_E8_train.ipynb). More information on the ensemble methods and their [data preprocessing](https://github.com/kyleosung/DS3ML3_Final_Project/blob/main/chess_SK_1data.ipynb), training for [Random Forest](https://github.com/kyleosung/DS3ML3_Final_Project/blob/main/chess_SK_2RF.ipynb) and [Support Vector Regression](https://github.com/kyleosung/DS3ML3_Final_Project/blob/main/chess_SK_4SVR.ipynb) and [testing](https://github.com/kyleosung/DS3ML3_Final_Project/blob/main/chess_SK__test_predictor.ipynb) can be found. 
 
 My training involved running the model for a couple dozen epochs on a subset of the data, training for approximately 24 hours (different amounts based on each model trained). This may vary depending on your computing power.
+
+
 
 **7. Activate Lichess API**
 
 Please follow the instructions given in the [Lichess Bot API](https://github.com/lichess-bot-devs/lichess-bot).
+
+Then, navigate to the lichess-bot folder to find more info.
+
+```bash
+cd lichess-bot
+```
+
+To activate the Lichess-API, please execute the main file.
+
+```bash
+python lichess-bot/lichess-bot.py
+```
 
 
 **8. Enjoy a Great Game of Chess!**
