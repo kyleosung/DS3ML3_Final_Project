@@ -641,9 +641,105 @@ def predict(model, fen, move_number=0, stochastic=True):
             # New portion (added 2024-04-09)
             if board.is_capture(move):
                 if board.turn:
-                    evals_list[-1] += 0.5 # Modify to add piece value eventually
+                    evals_list[-1] += 0.15 # Modify to add piece value eventually
                 else:
-                    evals_list[-1] -= 0.5 # Modify to add piece value eventually
+                    evals_list[-1] -= 0.15 # Modify to add piece value eventually
+    
+
+    evals_list = np.array(evals_list)
+    # print(evals_list)
+    # print(np.array(legal_moves_list))
+
+    sorted_indices = np.argsort(evals_list)
+    
+    # print(sorted_indices)
+
+    if board.turn:
+        '''
+        if it's white's turn, we must reverse the array such that the highest evaluation is first
+        if it's black's turn, keep the array ascending such that the lowest evaluation for the white pieces is first
+        ''' 
+        sorted_indices = sorted_indices[::-1]
+    
+    # print(np.array(legal_moves_list).shape)
+
+    # Use the sorted indices to sort legal_moves and evals_list
+    sorted_legal_moves = np.array(legal_moves_list)[sorted_indices]
+    sorted_evals_list = evals_list[sorted_indices]
+
+    if not stochastic: # if not using stochastic mode return best move
+        return sorted_legal_moves[0]
+
+    sample = np.random.random_sample()
+
+    # print(sample)
+    # print(sorted_legal_moves)
+
+    if sample <= 0.65 or move_number > 7: # 65% chance for best move
+        # print(f'playing best move')
+        return sorted_legal_moves[0]
+    elif sample <= 0.85 or move_number > 5: # 25% chance for second-best move
+        return sorted_legal_moves[1]
+    elif sample <= 0.975 or move_number > 3: #  7.5% chance for third-best move
+        return sorted_legal_moves[2]
+    else: # 2.5% chance for fourth-best move
+        return sorted_legal_moves[3]
+    
+def predict78(model7, model8, fen, move_number=0, stochastic=True):
+    """
+    Predicts the evaluation of all legal moves in a given chess position.
+
+    Parameters
+    ----------
+    model : torch.nn.Module
+        trained PyTorch model used for prediction
+    fen : str
+        FEN string representing the chess position.
+    move_number : int, optional
+        The number of the move in the game. Default: 0.
+    stochastic : bool, optional
+        If True, predictions are stochastic (only in the first seven moves)
+        If False, predictions are deterministic
+
+    Returns
+    -------
+    chess.Move object representing the best move to play.
+    """
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+    board = chess.Board(fen)
+    legal_moves_list = list(board.legal_moves)
+    evals_list = []
+
+    model7.eval()
+    model8.eval()
+    with torch.no_grad():
+        for move in legal_moves_list:
+            
+            if board.is_checkmate():
+                return move # Always make a move which gives checkmate if possible.
+
+            # is_capture = board.is_capture(move)
+
+            board.push(move)
+            fen_tensor = fen_str_to_3d_tensor(board.fen()).unsqueeze(0).to(device)
+            # print(fen_tensor.shape)
+
+            pieces_counts = get_number_of_pieces(board.fen()).unsqueeze(0).to(device)
+
+            eval7 = float(model7(fen_tensor).to('cpu'))
+            eval8 = float(model8(fen_tensor, pieces_counts).to('cpu'))
+
+            evals_list.append((eval7 + eval8) / 2)
+
+            board.pop()
+
+            # New portion (added 2024-04-09)
+            if board.is_capture(move):
+                if board.turn:
+                    evals_list[-1] += 0.15 # Modify to add piece value eventually
+                else:
+                    evals_list[-1] -= 0.15 # Modify to add piece value eventually
     
 
     evals_list = np.array(evals_list)

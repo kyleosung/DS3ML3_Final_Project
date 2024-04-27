@@ -1,11 +1,11 @@
-2024-04-25 18:00:38,321 __main__ (lichess-bot.py:1051) INFO 
+2024-04-26 23:03:39,162 __main__ (lichess-bot.py:1051) INFO 
     .   _/|
     .  // o\
     .  || ._)  lichess-bot 2024.3.21.1
     .  //__\
     .  )___(   Play on Lichess with a bot
     
-2024-04-25 18:00:38,349 lib.config (config.py:262) DEBUG Config:
+2024-04-26 23:03:39,179 lib.config (config.py:262) DEBUG Config:
 token: logger
 url: https://lichess.org/
 engine:
@@ -138,8 +138,8 @@ matchmaking:
   challenge_mode: random
   challenge_filter: none
 
-2024-04-25 18:00:38,351 lib.config (config.py:263) DEBUG ====================
-2024-04-25 18:00:38,353 lib.config (config.py:262) DEBUG Config:
+2024-04-26 23:03:39,181 lib.config (config.py:263) DEBUG ====================
+2024-04-26 23:03:39,186 lib.config (config.py:262) DEBUG Config:
 token: logger
 url: https://lichess.org/
 engine:
@@ -284,332 +284,264 @@ matchmaking:
   overrides: {}
 pgn_file_grouping: game
 
-2024-04-25 18:00:38,353 lib.config (config.py:263) DEBUG ====================
-2024-04-25 18:00:38,354 __main__ (lichess-bot.py:1054) INFO Checking engine configuration ...
-2024-04-25 18:00:38,357 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
-2024-04-25 18:00:38,357 __main__ (lichess-bot.py:1057) INFO Engine configuration OK
-2024-04-25 18:00:38,360 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (1): lichess.org:443
-2024-04-25 18:00:38,666 lib.lichess (lichess.py:63) DEBUG Backing off 0.1 seconds after 1 tries calling function <function Lichess.api_post at 0x000001E0C5D53BA0> with args (<lib.lichess.Lichess object at 0x000001E0E7F33B50>, 'token_test') and kwargs {'data': 'lip_r4E9TokqtbYPQx8ElZQ4'}
-2024-04-25 18:00:38,678 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
-    raise new_e
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
-    self._validate_conn(conn)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
-    conn.connect()
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 653, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-               ^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 465, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 509, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
-    return self.sslsocket_class._create(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1108, in _create
-    self.do_handshake()
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1379, in do_handshake
-    self._sslobj.do_handshake()
-ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
-    raise new_e
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
-    self._validate_conn(conn)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
-    conn.connect()
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 653, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-               ^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 465, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 509, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
-    return self.sslsocket_class._create(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1108, in _create
-    self.do_handshake()
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1379, in do_handshake
-    self._sslobj.do_handshake()
-urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
+2024-04-26 23:03:39,186 lib.config (config.py:263) DEBUG ====================
+2024-04-26 23:03:39,186 __main__ (lichess-bot.py:1054) INFO Checking engine configuration ...
+2024-04-26 23:03:40,651 matplotlib (__init__.py:350) DEBUG matplotlib data path: C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\matplotlib\mpl-data
+2024-04-26 23:03:40,655 matplotlib (__init__.py:350) DEBUG CONFIGDIR=C:\Users\Kyle_Remote\.matplotlib
+2024-04-26 23:03:40,656 matplotlib (__init__.py:1511) DEBUG interactive is False
+2024-04-26 23:03:40,657 matplotlib (__init__.py:1512) DEBUG platform is win32
+2024-04-26 23:03:40,737 matplotlib (__init__.py:350) DEBUG CACHEDIR=C:\Users\Kyle_Remote\.matplotlib
+2024-04-26 23:03:40,738 matplotlib.font_manager (font_manager.py:1574) DEBUG Using fontManager instance from C:\Users\Kyle_Remote\.matplotlib\fontlist-v330.json
+2024-04-26 23:03:42,513 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
+2024-04-26 23:03:42,513 __main__ (lichess-bot.py:1057) INFO Engine configuration OK
+2024-04-26 23:03:42,518 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (1): lichess.org:443
+2024-04-26 23:03:43,028 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/token/test HTTP/1.1" 200 None
+2024-04-26 23:03:43,126 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account HTTP/1.1" 200 None
+2024-04-26 23:03:43,126 __main__ (lichess-bot.py:1066) INFO Welcome KS_ChessAI!
+2024-04-26 23:03:43,129 __main__ (lichess-bot.py:225) INFO You're now connected to https://lichess.org/ and awaiting challenges.
+2024-04-26 23:03:43,641 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account/playing HTTP/1.1" 200 17
+2024-04-26 23:03:52,085 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'challenge', 'challenge': {'id': 'pfNdLM2r', 'url': 'https://lichess.org/pfNdLM2r', 'status': 'created', 'challenger': {'id': 'checkyle', 'name': 'ChecKyle', 'rating': 1667, 'title': None, 'provisional': True, 'online': True, 'lag': 4}, 'destUser': {'id': 'ks_chessai', 'name': 'KS_ChessAI', 'rating': 2000, 'title': 'BOT', 'provisional': True, 'online': True}, 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'rated': False, 'speed': 'rapid', 'timeControl': {'type': 'clock', 'limit': 420, 'increment': 10, 'show': '7+10'}, 'color': 'random', 'finalColor': 'white', 'perf': {'icon': '\ue017', 'name': 'Rapid'}}, 'compat': {'bot': True, 'board': True}}
+2024-04-26 23:03:52,085 __main__ (lichess-bot.py:455) INFO Accept Rapid casual challenge from ChecKyle (1667?) (pfNdLM2r)
+2024-04-26 23:03:52,192 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/challenge/pfNdLM2r/accept HTTP/1.1" 200 11
+2024-04-26 23:03:52,193 __main__ (lichess-bot.py:274) INFO --- Process Queued. Count: 1. IDs: {'pfNdLM2r'}
+2024-04-26 23:03:52,194 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'gameStart', 'game': {'fullId': 'pfNdLM2rlr7w', 'gameId': 'pfNdLM2r', 'fen': 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1', 'color': 'black', 'lastMove': '', 'source': 'friend', 'status': {'id': 20, 'name': 'started'}, 'variant': {'key': 'standard', 'name': 'Standard'}, 'speed': 'rapid', 'perf': 'rapid', 'rated': False, 'hasMoved': False, 'opponent': {'id': 'checkyle', 'username': 'ChecKyle', 'rating': 1667}, 'isMyTurn': False, 'secondsLeft': 420, 'compat': {'bot': True, 'board': True}, 'id': 'pfNdLM2r'}}
+2024-04-26 23:03:52,194 __main__ (lichess-bot.py:274) INFO --- Process Used. Count: 1. IDs: {'pfNdLM2r'}
+2024-04-26 23:03:52,202 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (1): lichess.org:443
+2024-04-26 23:03:52,713 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/pfNdLM2r HTTP/1.1" 200 None
+2024-04-26 23:03:52,713 __mp_main__ (lichess-bot.py:605) DEBUG Initial state: {'id': 'pfNdLM2r', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'rapid', 'perf': {'name': 'Rapid'}, 'rated': False, 'createdAt': 1714187032154, 'white': {'id': 'checkyle', 'name': 'ChecKyle', 'title': None, 'rating': 1667, 'provisional': True}, 'black': {'id': 'ks_chessai', 'name': 'KS_ChessAI', 'title': 'BOT', 'rating': 2000, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 420000, 'increment': 10000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': '', 'wtime': 420000, 'btime': 420000, 'winc': 10000, 'binc': 10000, 'status': 'started'}}
+2024-04-26 23:03:54,129 matplotlib (__init__.py:350) DEBUG matplotlib data path: C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\matplotlib\mpl-data
+2024-04-26 23:03:54,134 matplotlib (__init__.py:350) DEBUG CONFIGDIR=C:\Users\Kyle_Remote\.matplotlib
+2024-04-26 23:03:54,135 matplotlib (__init__.py:1511) DEBUG interactive is False
+2024-04-26 23:03:54,135 matplotlib (__init__.py:1512) DEBUG platform is win32
+2024-04-26 23:03:54,208 matplotlib (__init__.py:350) DEBUG CACHEDIR=C:\Users\Kyle_Remote\.matplotlib
+2024-04-26 23:03:54,210 matplotlib.font_manager (font_manager.py:1574) DEBUG Using fontManager instance from C:\Users\Kyle_Remote\.matplotlib\fontlist-v330.json
+2024-04-26 23:03:56,023 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
+2024-04-26 23:03:56,024 __mp_main__ (lichess-bot.py:611) DEBUG The engine for game pfNdLM2r has pid=?
+2024-04-26 23:03:56,024 __mp_main__ (lichess-bot.py:614) INFO +++ https://lichess.org/pfNdLM2r/black Rapid vs ChecKyle (1667?) (pfNdLM2r)
+2024-04-26 23:03:56,024 __mp_main__ (lichess-bot.py:725) DEBUG Game state: {'type': 'gameState', 'moves': 'e2e4', 'wtime': 420000, 'btime': 420000, 'winc': 10000, 'binc': 10000, 'status': 'started'}
+2024-04-26 23:03:56,025 lib.conversation (conversation.py:86) INFO *** https://lichess.org/pfNdLM2r/black [player] KS_ChessAI: Hi! I'm Kyle's Chess AI. Good luck!
+2024-04-26 23:03:56,027 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (2): lichess.org:443
+2024-04-26 23:03:56,549 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/pfNdLM2r/chat HTTP/1.1" 200 11
+2024-04-26 23:03:56,550 lib.conversation (conversation.py:86) INFO *** https://lichess.org/pfNdLM2r/black [spectator] KS_ChessAI: Hi! I'm KS_ChessAI. Type !help for a list of commands I can respond to.
+2024-04-26 23:03:56,651 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/pfNdLM2r/chat HTTP/1.1" 200 11
+2024-04-26 23:03:56,651 __mp_main__ (lichess-bot.py:716) INFO 
+2024-04-26 23:03:56,651 __mp_main__ (lichess-bot.py:717) INFO move: 1
+2024-04-26 23:03:56,652 lib.engine_wrapper (engine_wrapper.py:687) INFO Searching for time 10 seconds for game pfNdLM2r
+2024-04-26 23:03:56,653 backoff (_common.py:105) INFO Backing off play_game(...) for 0.3s (TypeError: EvalNet.forward() takes 2 positional arguments but 3 were given)
+2024-04-26 23:03:56,654 lib.lichess (lichess.py:63) DEBUG Backing off 0.3 seconds after 1 tries calling function <function play_game at 0x000001D7B326C680> with args () and kwargs {'li': <lib.lichess.Lichess object at 0x000001D7B3265990>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c0a90>, 'user_profile': {'id': 'ks_chessai', 'username': 'KS_ChessAI', 'perfs': {'bullet': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'blitz': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'rapid': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1711486329716, 'seenAt': 1714186489523, 'playTime': {'total': 18282, 'tv': 0}, 'url': 'https://lichess.org/@/KS_ChessAI', 'count': {'all': 120, 'rated': 0, 'ai': 0, 'draw': 11, 'drawH': 11, 'loss': 92, 'lossH': 92, 'win': 17, 'winH': 17, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False, 'followsYou': False}, 'config': <lib.config.Configuration object at 0x000001D7B32C2290>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x1d7b32c88d0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c8b10>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c8d50>, 'game_id': 'pfNdLM2r'}
+2024-04-26 23:03:56,661 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
   File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\backoff\_sync.py", line 105, in retry
     ret = target(*args, **kwargs)
           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\lichess.py", line 214, in api_post
-    response = self.session.post(url, data=data, headers=headers, params=params, json=payload, timeout=2)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 637, in post
-    return self.request("POST", url, data=data, json=json, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
-
-2024-04-25 18:00:38,765 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (2): lichess.org:443
-2024-04-25 18:00:39,013 lib.lichess (lichess.py:63) DEBUG Backing off 0.1 seconds after 2 tries calling function <function Lichess.api_post at 0x000001E0C5D53BA0> with args (<lib.lichess.Lichess object at 0x000001E0E7F33B50>, 'token_test') and kwargs {'data': 'lip_r4E9TokqtbYPQx8ElZQ4'}
-2024-04-25 18:00:39,015 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
-    raise new_e
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
-    self._validate_conn(conn)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
-    conn.connect()
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 653, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-               ^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 465, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 509, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
-    return self.sslsocket_class._create(
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lichess-bot.py", line 654, in play_game
+    engine.play_move(board,
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\engine_wrapper.py", line 184, in play_move
+    best_move = self.search(board, time_limit, can_ponder, draw_offered, best_move)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\homemade.py", line 80, in search
+    prediction = lib8.predict78(model7_loaded, model8_loaded, board.fen(), move_number=counter, stochastic=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\..\chess_SL_E8_lib.py", line 730, in predict78
+    eval7 = float(model7(fen_tensor, pieces_counts).to('cpu'))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1108, in _create
-    self.do_handshake()
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1379, in do_handshake
-    self._sslobj.do_handshake()
-ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+TypeError: EvalNet.forward() takes 2 positional arguments but 3 were given
 
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
-    raise new_e
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
-    self._validate_conn(conn)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
-    conn.connect()
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 653, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-               ^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 465, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 509, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
-    return self.sslsocket_class._create(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1108, in _create
-    self.do_handshake()
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1379, in do_handshake
-    self._sslobj.do_handshake()
-urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
+2024-04-26 23:03:57,098 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/pfNdLM2r HTTP/1.1" 200 None
+2024-04-26 23:03:57,098 __mp_main__ (lichess-bot.py:605) DEBUG Initial state: {'id': 'pfNdLM2r', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'rapid', 'perf': {'name': 'Rapid'}, 'rated': False, 'createdAt': 1714187032154, 'white': {'id': 'checkyle', 'name': 'ChecKyle', 'title': None, 'rating': 1667, 'provisional': True}, 'black': {'id': 'ks_chessai', 'name': 'KS_ChessAI', 'title': 'BOT', 'rating': 2000, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 420000, 'increment': 10000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': 'e2e4', 'wtime': 420000, 'btime': 420000, 'winc': 10000, 'binc': 10000, 'status': 'started'}}
+2024-04-26 23:03:57,099 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
+2024-04-26 23:03:57,099 __mp_main__ (lichess-bot.py:611) DEBUG The engine for game pfNdLM2r has pid=?
+2024-04-26 23:03:57,099 __mp_main__ (lichess-bot.py:614) INFO +++ https://lichess.org/pfNdLM2r/black Rapid vs ChecKyle (1667?) (pfNdLM2r)
+2024-04-26 23:03:57,099 lib.conversation (conversation.py:86) INFO *** https://lichess.org/pfNdLM2r/black [player] KS_ChessAI: Hi! I'm Kyle's Chess AI. Good luck!
+2024-04-26 23:03:57,100 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (3): lichess.org:443
+2024-04-26 23:03:57,611 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/pfNdLM2r/chat HTTP/1.1" 200 11
+2024-04-26 23:03:57,611 lib.conversation (conversation.py:86) INFO *** https://lichess.org/pfNdLM2r/black [spectator] KS_ChessAI: Hi! I'm KS_ChessAI. Type !help for a list of commands I can respond to.
+2024-04-26 23:03:57,713 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/pfNdLM2r/chat HTTP/1.1" 200 11
+2024-04-26 23:03:57,713 __mp_main__ (lichess-bot.py:716) INFO 
+2024-04-26 23:03:57,713 __mp_main__ (lichess-bot.py:717) INFO move: 1
+2024-04-26 23:03:57,714 lib.engine_wrapper (engine_wrapper.py:687) INFO Searching for time 10 seconds for game pfNdLM2r
+2024-04-26 23:03:57,716 backoff (_common.py:105) INFO Backing off play_game(...) for 0.8s (TypeError: EvalNet.forward() takes 2 positional arguments but 3 were given)
+2024-04-26 23:03:57,716 lib.lichess (lichess.py:63) DEBUG Backing off 0.8 seconds after 2 tries calling function <function play_game at 0x000001D7B326C680> with args () and kwargs {'li': <lib.lichess.Lichess object at 0x000001D7B3265990>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c0a90>, 'user_profile': {'id': 'ks_chessai', 'username': 'KS_ChessAI', 'perfs': {'bullet': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'blitz': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'rapid': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1711486329716, 'seenAt': 1714186489523, 'playTime': {'total': 18282, 'tv': 0}, 'url': 'https://lichess.org/@/KS_ChessAI', 'count': {'all': 120, 'rated': 0, 'ai': 0, 'draw': 11, 'drawH': 11, 'loss': 92, 'lossH': 92, 'win': 17, 'winH': 17, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False, 'followsYou': False}, 'config': <lib.config.Configuration object at 0x000001D7B32C2290>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x1d7b32c88d0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c8b10>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c8d50>, 'game_id': 'pfNdLM2r'}
+2024-04-26 23:03:57,718 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
   File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\backoff\_sync.py", line 105, in retry
     ret = target(*args, **kwargs)
           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\lichess.py", line 214, in api_post
-    response = self.session.post(url, data=data, headers=headers, params=params, json=payload, timeout=2)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 637, in post
-    return self.request("POST", url, data=data, json=json, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lichess-bot.py", line 654, in play_game
+    engine.play_move(board,
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\engine_wrapper.py", line 184, in play_move
+    best_move = self.search(board, time_limit, can_ponder, draw_offered, best_move)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\homemade.py", line 80, in search
+    prediction = lib8.predict78(model7_loaded, model8_loaded, board.fen(), move_number=counter, stochastic=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\..\chess_SL_E8_lib.py", line 730, in predict78
+    eval7 = float(model7(fen_tensor, pieces_counts).to('cpu'))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: EvalNet.forward() takes 2 positional arguments but 3 were given
 
-2024-04-25 18:00:39,080 urllib3.connectionpool (connectionpool.py:1055) DEBUG Starting new HTTPS connection (3): lichess.org:443
-2024-04-25 18:00:39,632 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/token/test HTTP/1.1" 200 None
-2024-04-25 18:00:39,741 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account HTTP/1.1" 200 None
-2024-04-25 18:00:39,742 __main__ (lichess-bot.py:1066) INFO Welcome KS_ChessAI!
-2024-04-25 18:00:39,747 __main__ (lichess-bot.py:225) INFO You're now connected to https://lichess.org/ and awaiting challenges.
-2024-04-25 18:00:40,572 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/account/playing HTTP/1.1" 200 17
-2024-04-25 18:05:41,004 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:10:41,005 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:15:41,005 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:20:41,005 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:25:41,006 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:30:41,006 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:35:41,006 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:40:41,007 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:45:41,008 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:50:41,007 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 18:55:41,008 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:00:41,010 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:00:41,014 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
-2024-04-25 19:00:41,636 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
-2024-04-25 19:05:41,010 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:10:41,011 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:15:41,011 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:20:41,011 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:25:41,013 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:30:41,012 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:35:41,013 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:40:41,014 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:45:41,014 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:50:41,014 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 19:55:41,015 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 20:00:41,015 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 20:00:44,100 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
-2024-04-25 20:00:44,709 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
-2024-04-25 20:05:41,015 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 20:10:41,015 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 20:15:41,016 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 20:20:41,015 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 20:25:41,015 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 20:30:41,016 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 20:35:41,016 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 20:40:41,016 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 20:45:41,017 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 20:50:41,017 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 20:55:41,017 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 21:00:41,017 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 21:00:49,056 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
-2024-04-25 21:00:49,669 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
-2024-04-25 21:05:41,017 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 21:10:41,017 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 21:15:41,017 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 21:20:41,017 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 21:25:41,018 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 21:30:41,018 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 21:35:41,018 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 21:40:41,018 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 21:45:41,018 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 21:50:41,019 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 21:55:41,018 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 22:00:41,019 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 22:00:54,008 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
-2024-04-25 22:00:54,610 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
-2024-04-25 22:05:41,019 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 22:10:41,019 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 22:15:41,020 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 22:20:41,021 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 22:25:41,022 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 22:30:41,024 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 22:35:41,025 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 22:40:41,026 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 22:45:41,027 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 22:50:41,030 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 22:55:41,030 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 23:00:41,031 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 23:00:58,835 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
-2024-04-25 23:00:59,371 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/users/status?ids=ks_chessai HTTP/1.1" 200 None
-2024-04-25 23:05:41,033 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 23:10:41,034 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 23:15:41,034 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'correspondence_ping'}
-2024-04-25 23:17:16,839 __main__ (lichess-bot.py:404) DEBUG Event: {'type': 'terminated', 'error': 'Traceback (most recent call last):\n  File "C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\.venv\\Lib\\site-packages\\urllib3\\response.py", line 737, in _error_catcher\n    yield\n  File "C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\.venv\\Lib\\site-packages\\urllib3\\response.py", line 1184, in read_chunked\n    self._update_chunk_length()\n  File "C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\.venv\\Lib\\site-packages\\urllib3\\response.py", line 1108, in _update_chunk_length\n    line = self._fp.fp.readline()  # type: ignore[union-attr]\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File "C:\\Users\\Kyle_Remote\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\socket.py", line 706, in readinto\n    return self._sock.recv_into(b)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File "C:\\Users\\Kyle_Remote\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\ssl.py", line 1311, in recv_into\n    return self.read(nbytes, buffer)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "C:\\Users\\Kyle_Remote\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\ssl.py", line 1167, in read\n    return self._sslobj.read(len, buffer)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTimeoutError: The read operation timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File "C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\.venv\\Lib\\site-packages\\requests\\models.py", line 816, in generate\n    yield from self.raw.stream(chunk_size, decode_content=True)\n  File "C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\.venv\\Lib\\site-packages\\urllib3\\response.py", line 1040, in stream\n    yield from self.read_chunked(amt, decode_content=decode_content)\n  File "C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\.venv\\Lib\\site-packages\\urllib3\\response.py", line 1172, in read_chunked\n    with self._error_catcher():\n  File "C:\\Users\\Kyle_Remote\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\contextlib.py", line 155, in __exit__\n    self.gen.throw(typ, value, traceback)\n  File "C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\.venv\\Lib\\site-packages\\urllib3\\response.py", line 742, in _error_catcher\n    raise ReadTimeoutError(self._pool, None, "Read timed out.") from e  # type: ignore[arg-type]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nurllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host=\'lichess.org\', port=443): Read timed out.\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\lichess-bot.py", line 98, in watch_control_stream\n    for line in lines:\n  File "C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\.venv\\Lib\\site-packages\\requests\\models.py", line 865, in iter_lines\n    for chunk in self.iter_content(\n  File "C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\.venv\\Lib\\site-packages\\requests\\models.py", line 822, in generate\n    raise ConnectionError(e)\nrequests.exceptions.ConnectionError: HTTPSConnectionPool(host=\'lichess.org\', port=443): Read timed out.\n'}
-2024-04-25 23:17:16,840 __main__ (lichess-bot.py:338) DEBUG Terminating exception:
-Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\response.py", line 737, in _error_catcher
-    yield
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\response.py", line 1184, in read_chunked
-    self._update_chunk_length()
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\response.py", line 1108, in _update_chunk_length
-    line = self._fp.fp.readline()  # type: ignore[union-attr]
-           ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 706, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1311, in recv_into
-    return self.read(nbytes, buffer)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1167, in read
-    return self._sslobj.read(len, buffer)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TimeoutError: The read operation timed out
+2024-04-26 23:03:58,533 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 23:03:59,050 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/pfNdLM2r HTTP/1.1" 200 None
+2024-04-26 23:03:59,050 __mp_main__ (lichess-bot.py:605) DEBUG Initial state: {'id': 'pfNdLM2r', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'rapid', 'perf': {'name': 'Rapid'}, 'rated': False, 'createdAt': 1714187032154, 'white': {'id': 'checkyle', 'name': 'ChecKyle', 'title': None, 'rating': 1667, 'provisional': True}, 'black': {'id': 'ks_chessai', 'name': 'KS_ChessAI', 'title': 'BOT', 'rating': 2000, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 420000, 'increment': 10000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': 'e2e4', 'wtime': 420000, 'btime': 420000, 'winc': 10000, 'binc': 10000, 'status': 'started'}}
+2024-04-26 23:03:59,051 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
+2024-04-26 23:03:59,051 __mp_main__ (lichess-bot.py:611) DEBUG The engine for game pfNdLM2r has pid=?
+2024-04-26 23:03:59,051 __mp_main__ (lichess-bot.py:614) INFO +++ https://lichess.org/pfNdLM2r/black Rapid vs ChecKyle (1667?) (pfNdLM2r)
+2024-04-26 23:03:59,051 lib.conversation (conversation.py:86) INFO *** https://lichess.org/pfNdLM2r/black [player] KS_ChessAI: Hi! I'm Kyle's Chess AI. Good luck!
+2024-04-26 23:03:59,150 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/pfNdLM2r/chat HTTP/1.1" 200 11
+2024-04-26 23:03:59,151 lib.conversation (conversation.py:86) INFO *** https://lichess.org/pfNdLM2r/black [spectator] KS_ChessAI: Hi! I'm KS_ChessAI. Type !help for a list of commands I can respond to.
+2024-04-26 23:03:59,246 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/pfNdLM2r/chat HTTP/1.1" 200 11
+2024-04-26 23:03:59,246 __mp_main__ (lichess-bot.py:716) INFO 
+2024-04-26 23:03:59,246 __mp_main__ (lichess-bot.py:717) INFO move: 1
+2024-04-26 23:03:59,247 lib.engine_wrapper (engine_wrapper.py:687) INFO Searching for time 10 seconds for game pfNdLM2r
+2024-04-26 23:03:59,248 backoff (_common.py:105) INFO Backing off play_game(...) for 2.9s (TypeError: EvalNet.forward() takes 2 positional arguments but 3 were given)
+2024-04-26 23:03:59,248 lib.lichess (lichess.py:63) DEBUG Backing off 2.9 seconds after 3 tries calling function <function play_game at 0x000001D7B326C680> with args () and kwargs {'li': <lib.lichess.Lichess object at 0x000001D7B3265990>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c0a90>, 'user_profile': {'id': 'ks_chessai', 'username': 'KS_ChessAI', 'perfs': {'bullet': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'blitz': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'rapid': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1711486329716, 'seenAt': 1714186489523, 'playTime': {'total': 18282, 'tv': 0}, 'url': 'https://lichess.org/@/KS_ChessAI', 'count': {'all': 120, 'rated': 0, 'ai': 0, 'draw': 11, 'drawH': 11, 'loss': 92, 'lossH': 92, 'win': 17, 'winH': 17, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False, 'followsYou': False}, 'config': <lib.config.Configuration object at 0x000001D7B32C2290>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x1d7b32c88d0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c8b10>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c8d50>, 'game_id': 'pfNdLM2r'}
+2024-04-26 23:03:59,249 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lichess-bot.py", line 654, in play_game
+    engine.play_move(board,
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\engine_wrapper.py", line 184, in play_move
+    best_move = self.search(board, time_limit, can_ponder, draw_offered, best_move)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\homemade.py", line 80, in search
+    prediction = lib8.predict78(model7_loaded, model8_loaded, board.fen(), move_number=counter, stochastic=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\..\chess_SL_E8_lib.py", line 730, in predict78
+    eval7 = float(model7(fen_tensor, pieces_counts).to('cpu'))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: EvalNet.forward() takes 2 positional arguments but 3 were given
 
-The above exception was the direct cause of the following exception:
+2024-04-26 23:04:02,174 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 23:04:02,688 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/pfNdLM2r HTTP/1.1" 200 None
+2024-04-26 23:04:02,688 __mp_main__ (lichess-bot.py:605) DEBUG Initial state: {'id': 'pfNdLM2r', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'rapid', 'perf': {'name': 'Rapid'}, 'rated': False, 'createdAt': 1714187032154, 'white': {'id': 'checkyle', 'name': 'ChecKyle', 'title': None, 'rating': 1667, 'provisional': True}, 'black': {'id': 'ks_chessai', 'name': 'KS_ChessAI', 'title': 'BOT', 'rating': 2000, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 420000, 'increment': 10000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': 'e2e4', 'wtime': 420000, 'btime': 420000, 'winc': 10000, 'binc': 10000, 'status': 'started'}}
+2024-04-26 23:04:02,689 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
+2024-04-26 23:04:02,689 __mp_main__ (lichess-bot.py:611) DEBUG The engine for game pfNdLM2r has pid=?
+2024-04-26 23:04:02,689 __mp_main__ (lichess-bot.py:614) INFO +++ https://lichess.org/pfNdLM2r/black Rapid vs ChecKyle (1667?) (pfNdLM2r)
+2024-04-26 23:04:02,689 lib.conversation (conversation.py:86) INFO *** https://lichess.org/pfNdLM2r/black [player] KS_ChessAI: Hi! I'm Kyle's Chess AI. Good luck!
+2024-04-26 23:04:02,795 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/pfNdLM2r/chat HTTP/1.1" 200 11
+2024-04-26 23:04:02,796 lib.conversation (conversation.py:86) INFO *** https://lichess.org/pfNdLM2r/black [spectator] KS_ChessAI: Hi! I'm KS_ChessAI. Type !help for a list of commands I can respond to.
+2024-04-26 23:04:02,896 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/pfNdLM2r/chat HTTP/1.1" 200 11
+2024-04-26 23:04:02,897 __mp_main__ (lichess-bot.py:716) INFO 
+2024-04-26 23:04:02,897 __mp_main__ (lichess-bot.py:717) INFO move: 1
+2024-04-26 23:04:02,897 lib.engine_wrapper (engine_wrapper.py:687) INFO Searching for time 10 seconds for game pfNdLM2r
+2024-04-26 23:04:02,902 backoff (_common.py:105) INFO Backing off play_game(...) for 2.0s (TypeError: EvalNet.forward() takes 2 positional arguments but 3 were given)
+2024-04-26 23:04:02,902 lib.lichess (lichess.py:63) DEBUG Backing off 2.0 seconds after 4 tries calling function <function play_game at 0x000001D7B326C680> with args () and kwargs {'li': <lib.lichess.Lichess object at 0x000001D7B3265990>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c0a90>, 'user_profile': {'id': 'ks_chessai', 'username': 'KS_ChessAI', 'perfs': {'bullet': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'blitz': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'rapid': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1711486329716, 'seenAt': 1714186489523, 'playTime': {'total': 18282, 'tv': 0}, 'url': 'https://lichess.org/@/KS_ChessAI', 'count': {'all': 120, 'rated': 0, 'ai': 0, 'draw': 11, 'drawH': 11, 'loss': 92, 'lossH': 92, 'win': 17, 'winH': 17, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False, 'followsYou': False}, 'config': <lib.config.Configuration object at 0x000001D7B32C2290>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x1d7b32c88d0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c8b10>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c8d50>, 'game_id': 'pfNdLM2r'}
+2024-04-26 23:04:02,903 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lichess-bot.py", line 654, in play_game
+    engine.play_move(board,
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\engine_wrapper.py", line 184, in play_move
+    best_move = self.search(board, time_limit, can_ponder, draw_offered, best_move)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\homemade.py", line 80, in search
+    prediction = lib8.predict78(model7_loaded, model8_loaded, board.fen(), move_number=counter, stochastic=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\..\chess_SL_E8_lib.py", line 730, in predict78
+    eval7 = float(model7(fen_tensor, pieces_counts).to('cpu'))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: EvalNet.forward() takes 2 positional arguments but 3 were given
 
-Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\models.py", line 816, in generate
-    yield from self.raw.stream(chunk_size, decode_content=True)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\response.py", line 1040, in stream
-    yield from self.read_chunked(amt, decode_content=decode_content)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\response.py", line 1172, in read_chunked
-    with self._error_catcher():
-  File "C:\Users\Kyle_Remote\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 155, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\urllib3\response.py", line 742, in _error_catcher
-    raise ReadTimeoutError(self._pool, None, "Read timed out.") from e  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='lichess.org', port=443): Read timed out.
+2024-04-26 23:04:04,899 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 23:04:05,410 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/pfNdLM2r HTTP/1.1" 200 None
+2024-04-26 23:04:05,411 __mp_main__ (lichess-bot.py:605) DEBUG Initial state: {'id': 'pfNdLM2r', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'rapid', 'perf': {'name': 'Rapid'}, 'rated': False, 'createdAt': 1714187032154, 'white': {'id': 'checkyle', 'name': 'ChecKyle', 'title': None, 'rating': 1667, 'provisional': True}, 'black': {'id': 'ks_chessai', 'name': 'KS_ChessAI', 'title': 'BOT', 'rating': 2000, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 420000, 'increment': 10000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': 'e2e4', 'wtime': 420000, 'btime': 420000, 'winc': 10000, 'binc': 10000, 'status': 'started'}}
+2024-04-26 23:04:05,411 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
+2024-04-26 23:04:05,411 __mp_main__ (lichess-bot.py:611) DEBUG The engine for game pfNdLM2r has pid=?
+2024-04-26 23:04:05,411 __mp_main__ (lichess-bot.py:614) INFO +++ https://lichess.org/pfNdLM2r/black Rapid vs ChecKyle (1667?) (pfNdLM2r)
+2024-04-26 23:04:05,411 lib.conversation (conversation.py:86) INFO *** https://lichess.org/pfNdLM2r/black [player] KS_ChessAI: Hi! I'm Kyle's Chess AI. Good luck!
+2024-04-26 23:04:05,518 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/pfNdLM2r/chat HTTP/1.1" 200 11
+2024-04-26 23:04:05,518 lib.conversation (conversation.py:86) INFO *** https://lichess.org/pfNdLM2r/black [spectator] KS_ChessAI: Hi! I'm KS_ChessAI. Type !help for a list of commands I can respond to.
+2024-04-26 23:04:05,616 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/pfNdLM2r/chat HTTP/1.1" 200 11
+2024-04-26 23:04:05,617 __mp_main__ (lichess-bot.py:716) INFO 
+2024-04-26 23:04:05,617 __mp_main__ (lichess-bot.py:717) INFO move: 1
+2024-04-26 23:04:05,618 lib.engine_wrapper (engine_wrapper.py:687) INFO Searching for time 10 seconds for game pfNdLM2r
+2024-04-26 23:04:05,620 backoff (_common.py:105) INFO Backing off play_game(...) for 9.7s (TypeError: EvalNet.forward() takes 2 positional arguments but 3 were given)
+2024-04-26 23:04:05,621 lib.lichess (lichess.py:63) DEBUG Backing off 9.7 seconds after 5 tries calling function <function play_game at 0x000001D7B326C680> with args () and kwargs {'li': <lib.lichess.Lichess object at 0x000001D7B3265990>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c0a90>, 'user_profile': {'id': 'ks_chessai', 'username': 'KS_ChessAI', 'perfs': {'bullet': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'blitz': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'rapid': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1711486329716, 'seenAt': 1714186489523, 'playTime': {'total': 18282, 'tv': 0}, 'url': 'https://lichess.org/@/KS_ChessAI', 'count': {'all': 120, 'rated': 0, 'ai': 0, 'draw': 11, 'drawH': 11, 'loss': 92, 'lossH': 92, 'win': 17, 'winH': 17, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False, 'followsYou': False}, 'config': <lib.config.Configuration object at 0x000001D7B32C2290>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x1d7b32c88d0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c8b10>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c8d50>, 'game_id': 'pfNdLM2r'}
+2024-04-26 23:04:05,621 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lichess-bot.py", line 654, in play_game
+    engine.play_move(board,
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\engine_wrapper.py", line 184, in play_move
+    best_move = self.search(board, time_limit, can_ponder, draw_offered, best_move)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\homemade.py", line 80, in search
+    prediction = lib8.predict78(model7_loaded, model8_loaded, board.fen(), move_number=counter, stochastic=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\..\chess_SL_E8_lib.py", line 730, in predict78
+    eval7 = float(model7(fen_tensor, pieces_counts).to('cpu'))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: EvalNet.forward() takes 2 positional arguments but 3 were given
 
-During handling of the above exception, another exception occurred:
+2024-04-26 23:04:15,287 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 23:04:15,792 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "GET /api/bot/game/stream/pfNdLM2r HTTP/1.1" 200 None
+2024-04-26 23:04:15,793 __mp_main__ (lichess-bot.py:605) DEBUG Initial state: {'id': 'pfNdLM2r', 'variant': {'key': 'standard', 'name': 'Standard', 'short': 'Std'}, 'speed': 'rapid', 'perf': {'name': 'Rapid'}, 'rated': False, 'createdAt': 1714187032154, 'white': {'id': 'checkyle', 'name': 'ChecKyle', 'title': None, 'rating': 1667, 'provisional': True}, 'black': {'id': 'ks_chessai', 'name': 'KS_ChessAI', 'title': 'BOT', 'rating': 2000, 'provisional': True}, 'initialFen': 'startpos', 'clock': {'initial': 420000, 'increment': 10000}, 'type': 'gameFull', 'state': {'type': 'gameState', 'moves': 'e2e4', 'wtime': 420000, 'btime': 420000, 'winc': 10000, 'binc': 10000, 'status': 'started'}}
+2024-04-26 23:04:15,793 lib.engine_wrapper (engine_wrapper.py:68) DEBUG Starting engine: ['C:\\Users\\Kyle_Remote\\Documents\\Programs\\DS3ML3_Final_Project\\lichess-bot\\engines\\ExampleEngine']
+2024-04-26 23:04:15,793 __mp_main__ (lichess-bot.py:611) DEBUG The engine for game pfNdLM2r has pid=?
+2024-04-26 23:04:15,793 __mp_main__ (lichess-bot.py:614) INFO +++ https://lichess.org/pfNdLM2r/black Rapid vs ChecKyle (1667?) (pfNdLM2r)
+2024-04-26 23:04:15,794 lib.conversation (conversation.py:86) INFO *** https://lichess.org/pfNdLM2r/black [player] KS_ChessAI: Hi! I'm Kyle's Chess AI. Good luck!
+2024-04-26 23:04:15,795 urllib3.connectionpool (connectionpool.py:292) DEBUG Resetting dropped connection: lichess.org
+2024-04-26 23:04:16,350 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/pfNdLM2r/chat HTTP/1.1" 200 11
+2024-04-26 23:04:16,351 lib.conversation (conversation.py:86) INFO *** https://lichess.org/pfNdLM2r/black [spectator] KS_ChessAI: Hi! I'm KS_ChessAI. Type !help for a list of commands I can respond to.
+2024-04-26 23:04:16,449 urllib3.connectionpool (connectionpool.py:549) DEBUG https://lichess.org:443 "POST /api/bot/game/pfNdLM2r/chat HTTP/1.1" 200 11
+2024-04-26 23:04:16,450 __mp_main__ (lichess-bot.py:716) INFO 
+2024-04-26 23:04:16,450 __mp_main__ (lichess-bot.py:717) INFO move: 1
+2024-04-26 23:04:16,450 lib.engine_wrapper (engine_wrapper.py:687) INFO Searching for time 10 seconds for game pfNdLM2r
+2024-04-26 23:04:16,454 backoff (_common.py:105) INFO Backing off play_game(...) for 9.3s (TypeError: EvalNet.forward() takes 2 positional arguments but 3 were given)
+2024-04-26 23:04:16,454 lib.lichess (lichess.py:63) DEBUG Backing off 9.3 seconds after 6 tries calling function <function play_game at 0x000001D7B326C680> with args () and kwargs {'li': <lib.lichess.Lichess object at 0x000001D7B3265990>, 'control_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c0a90>, 'user_profile': {'id': 'ks_chessai', 'username': 'KS_ChessAI', 'perfs': {'bullet': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'blitz': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'rapid': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'classical': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}, 'correspondence': {'games': 0, 'rating': 2000, 'rd': 500, 'prog': 0, 'prov': True}}, 'title': 'BOT', 'createdAt': 1711486329716, 'seenAt': 1714186489523, 'playTime': {'total': 18282, 'tv': 0}, 'url': 'https://lichess.org/@/KS_ChessAI', 'count': {'all': 120, 'rated': 0, 'ai': 0, 'draw': 11, 'drawH': 11, 'loss': 92, 'lossH': 92, 'win': 17, 'winH': 17, 'bookmark': 0, 'playing': 0, 'import': 0, 'me': 0}, 'followable': True, 'following': False, 'blocking': False, 'followsYou': False}, 'config': <lib.config.Configuration object at 0x000001D7B32C2290>, 'challenge_queue': <ListProxy object, typeid 'list' at 0x1d7b32c88d0>, 'correspondence_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c8b10>, 'logging_queue': <AutoProxy[Queue] object, typeid 'Queue' at 0x1d7b32c8d50>, 'game_id': 'pfNdLM2r'}
+2024-04-26 23:04:16,455 lib.lichess (lichess.py:65) DEBUG Exception: Traceback (most recent call last):
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\backoff\_sync.py", line 105, in retry
+    ret = target(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lichess-bot.py", line 654, in play_game
+    engine.play_move(board,
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lib\engine_wrapper.py", line 184, in play_move
+    best_move = self.search(board, time_limit, can_ponder, draw_offered, best_move)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\homemade.py", line 80, in search
+    prediction = lib8.predict78(model7_loaded, model8_loaded, board.fen(), move_number=counter, stochastic=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\..\chess_SL_E8_lib.py", line 730, in predict78
+    eval7 = float(model7(fen_tensor, pieces_counts).to('cpu'))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: EvalNet.forward() takes 2 positional arguments but 3 were given
 
-Traceback (most recent call last):
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\lichess-bot\lichess-bot.py", line 98, in watch_control_stream
-    for line in lines:
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\models.py", line 865, in iter_lines
-    for chunk in self.iter_content(
-  File "C:\Users\Kyle_Remote\Documents\Programs\DS3ML3_Final_Project\.venv\Lib\site-packages\requests\models.py", line 822, in generate
-    raise ConnectionError(e)
-requests.exceptions.ConnectionError: HTTPSConnectionPool(host='lichess.org', port=443): Read timed out.
-
+2024-04-26 23:04:16,289 __main__ (lichess-bot.py:71) DEBUG Received SIGINT. Terminating client.
+2024-04-26 23:04:18,493 __main__ (lichess-bot.py:71) DEBUG Received SIGINT. Terminating client.
